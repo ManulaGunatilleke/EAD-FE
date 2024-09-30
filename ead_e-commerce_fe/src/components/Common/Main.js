@@ -2,10 +2,10 @@ import React from 'react';
 import Nav from '../Dashboard/Navbar';
 import '../Dashboard/styles.css';
 
-function Home({ Toggle }) {
+function Main() {
   return (
     <div className="px-3">
-      <Nav Toggle={Toggle} />
+      {/* <Nav Toggle={Toggle} /> */}
       <div className="container-fluid">
         <div className="row g-3 my-2">
           <div className="col-md-3 p-1">
@@ -100,4 +100,4 @@ function Home({ Toggle }) {
   );
 }
 
-export default Home;
+export default Main;
