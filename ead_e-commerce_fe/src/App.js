@@ -16,11 +16,7 @@ import Home from './pages/homePage/homePage';
 import LoginComponent from './auth/components/loginComponent/loginComponent';
 
 function App() {
-  // const [toggle, setToggle] = useState(true)
 
-  // const Toggle = () => {
-  //   setToggle(!toggle)
-  // }
 
   // user and token details pass
   const [user, setUser] = useState(() => {
@@ -31,19 +27,31 @@ function App() {
     const storedToken = localStorage.getItem("token");
     return storedToken ? JSON.parse(storedToken) : null;
   });
+  const [userType, setUserType] = useState(()=> {
+    const storedUserType = localStorage.getItem("userType");
+    return storedUserType ? JSON.parse(storedUserType) : null;
+  });
+  const [userId, setUserId] = useState(()=> {
+    const storedUserId = localStorage.getItem("userId");
+    return storedUserId ? JSON.parse(storedUserId) : null;
+  });
   useEffect(() => {
     if (user && token) {
       localStorage.setItem("user", JSON.stringify(user));
       localStorage.setItem("token", JSON.stringify(token));
+      localStorage.setItem("userType", JSON.stringify(userType));
+      localStorage.setItem("userId", JSON.stringify(userId));
     } else {
       localStorage.removeItem("user");
       localStorage.removeItem("token");
+      localStorage.removeItem("userType");
+      localStorage.removeItem("userId");
     }
-  }, [user, token]);
+  }, [user, token, userType, userId]);
 
   return (
     <Router>
-      <UserContext.Provider value={{ user, setUser, token, setToken }}>
+      <UserContext.Provider value={{ user, setUser, token, setToken, userType, setUserType, userId, setUserId }}>
         <Routes>
           <Route path='' element={<Index/>}/>
           <Route path='/login' element={<LoginComponent/>}/>
@@ -51,17 +59,6 @@ function App() {
         </Routes>
       </UserContext.Provider>
     </Router>
-    // <div className='container-fluid bg-secondary min-vh-100 '>
-    //   <div className='row '>
-    //     {toggle && <div className='col-4 col-md-2 bg-white vh-100 position-fixed'>
-    //       <Sidebar />
-    //     </div>}
-    //     {toggle && <div className='col-4 col-md-2'></div>}
-    //     <div className='col'>
-    //       <Home Toggle={Toggle} />
-    //     </div>
-    //   </div>
-    // </div>
   )
 }
 export default App

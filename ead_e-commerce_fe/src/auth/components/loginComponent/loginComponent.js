@@ -20,7 +20,7 @@ export default function LoginComponent() {
     }
 
     return (
-        <div className="container">
+        <div className="logincontainer">
             <div className="header">
                 <Link to="/">
                     <h1 className="website-name">Your Website Name</h1>

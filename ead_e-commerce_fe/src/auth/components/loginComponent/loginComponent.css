@@ -1,8 +1,7 @@
 /* loginComponent.css */
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
-html,
-body {
+.logincontainer {
   background-image: url('../../../images/index.png');
   background-size: cover;
   background-repeat: no-repeat;
@@ -10,7 +9,7 @@ body {
   font-family:Arial, Helvetica, sans-serif;
 }
 
-.container {
+.logincontainer {
   height: 100vh; 
 }
 
@@ -41,11 +40,21 @@ body {
   color: white;
 }
 
+.input-group {
+  margin-bottom: 15px; /* Added margin for spacing */
+}
+
 .input-group-prepend span {
   width: 50px;
+  height: 40px;
   background-color: #b4b2ab;
   color: black;
   border: 0 !important;
+  margin-right: 10px;
+}
+
+.fas {
+ font-size: 25px;
 }
 
 input:focus {

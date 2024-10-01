@@ -9,8 +9,8 @@ export default function Home() {
     const { user } = useContext(UserContext);
 
     // check if the user is an csr, vendor or admin
-    const isCSR = user && user.UserType === "CSR";
-    const isAdmin = user && user.UserType === "Admin";
+    const isCSR = user && user.userType === "CSR";
+    const isAdmin = user && user.userType === "Admin";
 
     return (
         <>
