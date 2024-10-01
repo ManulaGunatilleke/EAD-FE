@@ -1,5 +1,4 @@
 import React from 'react';
-import Nav from '../Dashboard/Navbar';
 import '../Dashboard/styles.css';
 
 function Main() {

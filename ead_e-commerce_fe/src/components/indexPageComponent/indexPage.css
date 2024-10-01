@@ -1,0 +1,51 @@
+.landing-page {
+    background-image: url('../../images/index1.jpg'); 
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    backdrop-filter: blur(5px);
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(169, 169, 169, 0.2); 
+    border-radius: 10px;
+    backdrop-filter: blur(10px); 
+}
+
+.company-name {
+    font-size: 4rem; 
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+
+.description {
+    font-size: 1.5rem; 
+    margin-top: 10px; 
+}
+
+.login-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+}
+
+.large-button {
+    font-size: 2.5rem; 
+    padding: 2px 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 600;
+}
+
