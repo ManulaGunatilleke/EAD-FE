@@ -8,6 +8,8 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import Index from './pages/IndexPage/IndexPage';
 import Home from './pages/homePage/homePage';
 
+import OrderDetails from './components/OrderManagement/OrderDetails';
+
 function App() {
   // const [toggle, setToggle] = useState(true)
 
@@ -20,6 +22,7 @@ function App() {
       <Routes>
         <Route path='' element={<Index/>}/>
         <Route path='/home' element={<Home/>}/>
+        <Route path='/viewOrders' element={<OrderDetails/>}/>
       </Routes>
     </Router>
     // <div className='container-fluid bg-secondary min-vh-100 '>
