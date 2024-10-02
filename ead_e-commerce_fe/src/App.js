@@ -8,15 +8,21 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
-// import Sidebar from '../src/components/Dashboard/Sidebar'
+// Header
+import Header from './components/headerComponent/Header';
+
+// Basic Components
 import Index from './pages/IndexPage/IndexPage';
 import Home from './pages/homePage/homePage';
-
-// Auth Components
 import LoginComponent from './auth/components/loginComponent/loginComponent';
+import Profile from './pages/ProfilePage/profilePage';
+
+// Admin Pages
+import RegisterComponent from './auth/components/registerComponent/registerComponent';
+import NotActivatePage from './pages/notActivatePage/notActivatePage';
+import AllUsers from './components/allUsersComponent/allUsersComponent';
 
 function App() {
-
 
   // user and token details pass
   const [user, setUser] = useState(() => {
@@ -52,10 +58,15 @@ function App() {
   return (
     <Router>
       <UserContext.Provider value={{ user, setUser, token, setToken, userType, setUserType, userId, setUserId }}>
+        <Header/>
         <Routes>
           <Route path='' element={<Index/>}/>
           <Route path='/login' element={<LoginComponent/>}/>
+          <Route path='/registerAccount' element={<RegisterComponent/>}/>
           <Route path='/home' element={<Home/>}/>
+          <Route path='/notActivateAccounts' element={<NotActivatePage/>}/>
+          <Route path='/allUsers' element={<AllUsers/>}/>
+          <Route path='/profile' element={<Profile/>}/>
         </Routes>
       </UserContext.Provider>
     </Router>

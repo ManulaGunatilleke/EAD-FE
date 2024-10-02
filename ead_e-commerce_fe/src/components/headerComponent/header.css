@@ -1,0 +1,12 @@
+.navbar {
+    height: 70px; /* Increase navbar height */
+}
+
+.navbar-brand {
+    font-size: 2rem; /* Increase font size of MTB SELLERS */
+    font-weight: 700; /* Increase font weight */
+}
+
+.nav-link {
+    font-size: 1.2rem; /* Increase font size for nav links */
+}

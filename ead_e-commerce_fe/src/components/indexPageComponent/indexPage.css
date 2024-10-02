@@ -1,4 +1,5 @@
 .landing-page {
+    padding-left: 0 !important;
     background-image: url('../../images/index1.jpg'); 
     background-size: cover;
     background-position: center;

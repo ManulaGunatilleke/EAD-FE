@@ -7,6 +7,34 @@ const useAuth = () => {
     const navigate = useNavigate();
     const { setUser, setToken, setUserId, setUserType } = useContext(UserContext);
 
+    const userSignup = async (Name, Email, Address, Phone, UserType, IsWebUser, Username, AccountStatus, Password, AvgRating) => {
+        try {
+            console.log({
+                Name, Email, Address, Phone, UserType, Username, AccountStatus, Password, AvgRating, IsWebUser
+            });  
+            const response = await axios.post('https://localhost:44366/api/User', {
+                Name,
+                Email,
+                Address,
+                Phone,
+                UserType,
+                IsWebUser,
+                Username,
+                AccountStatus,
+                Password,
+                AvgRating
+            });
+            if (response.status === 200) {
+                alert("New User Account Created Successfully..!");
+                navigate('/home')
+            } else {
+                alert("Account Created failed. Please try again."); 
+            }
+        } catch (error) {
+            alert(error);
+        }
+    };
+
     const login = async (Email, Password) => {
         try {
             const response = await axios.post('https://localhost:44366/api/User/login', {
@@ -34,7 +62,12 @@ const useAuth = () => {
         }
     }
 
-    return { login };
+    const logout = () => {
+        localStorage.clear();
+        window.location.href = '/login';
+    }
+
+    return { userSignup, login, logout };
 }
 
 export default useAuth;

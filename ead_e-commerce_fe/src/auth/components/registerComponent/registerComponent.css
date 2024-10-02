@@ -1,0 +1,65 @@
+.registration-container {
+    display: flex;
+    height: auto; 
+    min-height: 100vh; 
+}
+
+.image-section {
+    flex: 0 0 40%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f2f2;
+}
+
+.image-section img {
+    max-width: 100%; 
+    height: auto;
+}
+
+.form-section {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    padding: 20px 40px 20px 40px; 
+}
+
+h2 {
+    margin-bottom: 20px; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+}
+
+.form-group {
+    margin-bottom: 15px; 
+}
+
+label {
+    margin-bottom: 5px;
+    display: block; 
+}
+
+input, select {
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+}
+
+button {
+    width: 100%;
+    padding: 10px; 
+    background-color: #b4b2ab; 
+    color: black; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 20px; 
+}
+
+button:hover {
+    color: white;
+    background-color: black;
+}
