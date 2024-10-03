@@ -7,7 +7,7 @@ import './header.css'; // Import the CSS file for custom styles
 export default function Header() {
 
     const location = useLocation();
-    const { user } = useContext(UserContext);
+    const { user, userId } = useContext(UserContext);
     const { logout } = useAuth();
 
     // Logout function
@@ -67,7 +67,7 @@ export default function Header() {
                                             <a className="nav-link fs-5" href="#">Customer Requests</a>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link fs-5" href="#">My Profile</a>
+                                            <a className="nav-link fs-5" href={`/profile/${userId}`}>My Profile</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -80,13 +80,13 @@ export default function Header() {
                                             <a className="nav-link fs-5" href="#">Products</a>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link fs-5" href="#">My Ratings</a>
+                                            <a className="nav-link fs-5" href={`/rating/${userId}`}>My Ratings</a>
                                         </li>
                                         <li className="nav-item">
                                             <a className="nav-link fs-5" href="#">My Orders</a>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link fs-5" href="/profile">My Profile</a>
+                                            <a className="nav-link fs-5" href={`/profile/${userId}`}>My Profile</a>
                                         </li>
                                     </ul>
                                 </div>                            

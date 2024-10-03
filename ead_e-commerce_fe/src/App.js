@@ -8,8 +8,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
-// Header
+// Header and Footer
 import Header from './components/headerComponent/Header';
+import Footer from './components/footerComponent/Footer';
 
 // Basic Components
 import Index from './pages/IndexPage/IndexPage';
@@ -21,6 +22,9 @@ import Profile from './pages/ProfilePage/profilePage';
 import RegisterComponent from './auth/components/registerComponent/registerComponent';
 import NotActivatePage from './pages/notActivatePage/notActivatePage';
 import AllUsers from './components/allUsersComponent/allUsersComponent';
+
+// Vendor Pages
+import RatingPage from './pages/ratingPage/ratingPage';
 
 function App() {
 
@@ -59,15 +63,17 @@ function App() {
     <Router>
       <UserContext.Provider value={{ user, setUser, token, setToken, userType, setUserType, userId, setUserId }}>
         <Header/>
-        <Routes>
-          <Route path='' element={<Index/>}/>
-          <Route path='/login' element={<LoginComponent/>}/>
-          <Route path='/registerAccount' element={<RegisterComponent/>}/>
-          <Route path='/home' element={<Home/>}/>
-          <Route path='/notActivateAccounts' element={<NotActivatePage/>}/>
-          <Route path='/allUsers' element={<AllUsers/>}/>
-          <Route path='/profile' element={<Profile/>}/>
-        </Routes>
+          <Routes>
+            <Route path='' element={<Index/>}/>
+            <Route path='/login' element={<LoginComponent/>}/>
+            <Route path='/registerAccount' element={<RegisterComponent/>}/>
+            <Route path='/home' element={<Home/>}/>
+            <Route path='/notActivateAccounts' element={<NotActivatePage/>}/>
+            <Route path='/allUsers' element={<AllUsers/>}/>
+            <Route path='/profile/:id' element={<Profile/>}/>
+            <Route path='/rating/:id' element={<RatingPage/>}/>
+          </Routes>
+        <Footer/>
       </UserContext.Provider>
     </Router>
   )

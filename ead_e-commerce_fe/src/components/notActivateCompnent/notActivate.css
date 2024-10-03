@@ -1,8 +1,8 @@
 .not-activate {
-    background-image: url('https://mdbootstrap.com/img/Photos/new-templates/tables/img2.jpg'); /* Add your background image URL */
+    background-image: url('https://mdbootstrap.com/img/Photos/new-templates/tables/img2.jpg');
     background-size: cover;
     background-position: center;
-    color: white; /* Text color */
+    color: white; 
     padding: 20px;
     min-height: 100vh; 
 }
