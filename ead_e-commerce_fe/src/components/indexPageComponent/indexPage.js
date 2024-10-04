@@ -1,30 +1,41 @@
 import React from "react";
 import './indexPage.css';
 import { Link } from "react-router-dom"; 
-import { Container } from "react-bootstrap";
+import bgVideo from '../../assets/mp4/bg.mp4';
 
 export default function Index() {
     return (
-        <div className="landing-page">
-            <Container fluid className="h-100 d-flex flex-column justify-content-center align-items-center">
-
-                <div className="text-container text-center">
-                    <div className="company-name">
-                        <div>MTB SELLERS</div>
-                    </div>
-                    <div className="description">
-                        <p>Your one-stop shop for all mountain biking needs. ddddddsssssssssssssssssddddddd <br/>
-                        dddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj <br/>
-                        gggggggggggggggggggggggggggggggggg</p>
+        <div className="page-container">
+            {/* Background Video */}
+            <video className="bg-video" playsInline autoPlay muted loop>
+                <source src={bgVideo} type="video/mp4" />
+            </video>
+    
+            {/* Masthead */}
+            <div className="masthead">
+                <div className="masthead-content text-white">
+                    <div class="container-fluid px-4 px-lg-0">
+                        <h1 className="fst-italic lh-1 mb-4">Welcome to Our MTB Sellers</h1>
+                        <p className="mb-5">We're working hard to deliver the product of this site. Sign In your own accounts and work together..!</p>
+            
+                        {/* Contact Form */}
+                        <form id="contactForm">
+                            <div className="input-group-newsletter">
+                                <Link to="/login">
+                                    <button className="btn btn-primary text-black fw-bold fs-4" id="submitButton" type="submit">Login here...</button>               
+                                </Link>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                
-                <div className="login-button">
-                    <Link to="/login">
-                        <button type="button" className="btn btn-secondary large-button">Login here</button>
-                    </Link>
-                </div>
-            </Container>
-        </div>
+            </div>
+    
+            {/* Social Icons */}
+            <div className="social-icons">
+            <a className="btn btn-dark m-3" href="#!"><i className="fab fa-twitter"></i></a>
+            <a className="btn btn-dark m-3" href="#!"><i class="fa-brands fa-youtube"></i></a>
+            <a className="btn btn-dark m-3" href="#!"><i className="fab fa-instagram"></i></a>
+            </div>
+      </div>
     );
 }

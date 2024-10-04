@@ -11,16 +11,22 @@
 }
 
 .rating-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, background-color 0.2s;
     padding: 15px;
     margin: 10px;
     width: calc(33.33% - 20px); 
     box-sizing: border-box; 
     position: relative; 
 }
+
+.rating-card:hover {
+    transform: scale(1.05);
+    background-color: #e9ecef;
+  }
 
 .rating-content {
     margin-right: 40px; 

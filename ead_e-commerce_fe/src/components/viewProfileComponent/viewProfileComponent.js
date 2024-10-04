@@ -23,7 +23,7 @@ export default function ViewProfile() {
     // Calculate custom avgRating from ratingData
     const customAvgRating = ratingData?.length 
         ? (ratingData.reduce((acc, curr) => acc + (curr.ratingNo || 0), 0) / ratingData.length).toFixed(2) 
-        : 'N/A';
+        : '0';
 
     useEffect(() => {
         if (isUpdated) {
@@ -129,7 +129,7 @@ export default function ViewProfile() {
                                         </div>
                                         <div className="info-column">
                                             <h5>AvgRating</h5>
-                                            <p>{customAvgRating > 0 ? customAvgRating : userData?.avgRating || 'N/A'}</p>
+                                            <p>{customAvgRating > 0 ? customAvgRating : userData?.avgRating || '0'}</p>
                                         </div>
                                     </div>
                                     <div>

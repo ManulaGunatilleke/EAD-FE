@@ -1,0 +1,12 @@
+.adminMain {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.header2 {
+    color: #333;
+    font-size: 2.5rem;
+    font-weight: 700;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}

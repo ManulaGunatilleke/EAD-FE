@@ -23,7 +23,7 @@ export default function LoginComponent() {
         <div className="logincontainer">
             <div className="header">
                 <Link to="/">
-                    <h1 className="website-name">Your Website Name</h1>
+                    <h1 className="website-name">MTB SELLERS</h1>
                 </Link>
             </div>
             <div className="h-100 d-flex justify-content-center align-items-center">
