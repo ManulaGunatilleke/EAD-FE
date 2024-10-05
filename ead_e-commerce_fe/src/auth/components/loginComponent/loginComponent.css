@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+.logincontainer {
+  background-image: url('../../../images/index.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.logincontainer {
+  height: 100vh; 
+}
+
+.h-100 {
+  height: 100%; 
+}
+.header {
+  position: absolute; 
+  top: 20px; 
+  left: 20px; 
+  color: white; 
+  font-size: 24px; 
+}
+.header a {
+  color: inherit; 
+  text-decoration: none; 
+}
+.website-name {
+  margin: 0; 
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
+.card {
+  height: 370px;
+  width: 400px;
+  background-color: rgba(0, 0, 0, 0.9) !important;
+}
+
+.card-header h3 {
+  color: white;
+}
+
+.input-group {
+  margin-bottom: 15px; /* Added margin for spacing */
+}
+
+.input-group-prepend span {
+  width: 50px;
+  height: 40px;
+  background-color: #b4b2ab;
+  color: black;
+  border: 0 !important;
+  margin-right: 10px;
+}
+
+.fas {
+ font-size: 25px;
+}
+
+input:focus {
+  outline: 0 0 0 0 !important;
+  box-shadow: 0 0 0 0 !important;
+}
+
+.remember {
+  color: white;
+}
+
+.remember input {
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  margin-right: 5px;
+}
+
+.form-group.button-container {
+    margin-top: 50px; 
+  }
+  
+  .login_btn {
+    color: black;
+    background-color: #b4b2ab;
+    width: 100%; 
+  }
+  
+  .login_btn:hover {
+    color: black;
+    background-color: white;
+  }
+

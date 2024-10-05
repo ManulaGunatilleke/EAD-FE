@@ -1,0 +1,162 @@
+.background-profile {
+    background-color: #f4f5f7;
+}
+
+.profileHeading {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    padding-left: 40px;
+    padding-top: 10px;
+}
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #f4f5f7; */
+    padding: 20px;
+}
+  
+.profile-card {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    background-color: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+  
+.profile-row {
+    display: flex;
+    width: 100%;
+}
+  
+.profile-image-section {
+    flex: 0 0 40%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+}
+
+.profileName {
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+}
+
+.profileType {
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+}
+  
+.profile-image {
+    width: 300px;
+    border-radius: 50%;
+    margin-bottom: 55px;
+}
+  
+.profile-info-section {
+    flex: 1;
+    padding: 20px;
+}
+  
+.profile-body h6 {
+    font-weight: bold;
+}
+  
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+  
+.info-column h6 {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+  
+.info-column p {
+    color: #6c757d;
+}
+  
+.gradient-custom {
+    background: linear-gradient(to right bottom, rgb(231, 229, 223), rgb(121, 118, 118));
+}
+
+/* Edit Form */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 900px;
+    max-width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+form {
+    max-height: 80vh;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.saveButton {
+    margin-right: 15px; 
+    margin-bottom: 15px;
+    padding: 8px 12px;
+    background-color: #b4b2ab;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.saveButton:hover {
+    background-color: black;
+}
+
+.cancelButton {
+    padding: 8px 12px;
+    margin-bottom: 15px;
+    background-color: #b4b2ab;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cancelButton:hover {
+    background-color: black;
+}
+
+
+  
