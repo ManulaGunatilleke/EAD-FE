@@ -98,7 +98,7 @@ function App() {
             <Route path='/viewProductApproval/:id' element={<ViewApprovalProductPage/>}/>
 
             <Route path='/orderDetails' element={<OrderDetails/>}/>
-            <Route path='/order/products/:id' element={<OrderProducts/>}/>
+            <Route path='/order/products/:orderId' element={<OrderProducts/>}/>
           </Routes>
         <Footer/>
       </UserContext.Provider>
