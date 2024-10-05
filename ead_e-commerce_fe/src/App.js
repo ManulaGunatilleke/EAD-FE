@@ -11,6 +11,8 @@ import Home from './pages/homePage/homePage';
 //Product Mgmt
 import CreateProduct from './pages/createProductPage/createProductPage';
 import ViewVendorProductPage from './pages/viewVendorProductPage/viewVendorProductPage';
+import ViewSingleProductPage from './pages/viewSingleProductPage/viewSingleProductPage';
+import UpdateProductPage from './pages/updateProductPage/updateProductPage';
 
 function App() {
   // const [toggle, setToggle] = useState(true)
@@ -26,6 +28,8 @@ function App() {
         <Route path='/home' element={<Home/>}/>
         <Route path='/createProduct' element={<CreateProduct/>}/>
         <Route path='/viewVendorProducts' element={<ViewVendorProductPage/>}/>
+        <Route path='/viewProduct/:id' element={<ViewSingleProductPage/>}/>
+        <Route path='/updateProduct/:id' element={<UpdateProductPage/>}/>
       </Routes>
     </Router>
     // <div className='container-fluid bg-secondary min-vh-100 '>

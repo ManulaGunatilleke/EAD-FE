@@ -13,13 +13,15 @@ export default function ViewVendorProductComponent() {
   const handleDelete = async (data) => {
     console.log(data);
     const isDeleted = await onDeleteProduct(data.productId);
-    if(isDeleted){
+    if (isDeleted) {
       alert("Your product has been deleted successfully!");
-      window.location.href = '/viewVendorProducts';
+      window.location.href = "/viewVendorProducts";
     } else {
-      console.log("Error with the product deletion, please try again later ...");
+      console.log(
+        "Error with the product deletion, please try again later ..."
+      );
     }
-  }
+  };
 
   return (
     <div className="ProductTable table-responsive">
@@ -51,19 +53,37 @@ export default function ViewVendorProductComponent() {
                   <td>{item.productName}</td>
                   <td className="text-uppercase">{item.productCategory}</td>
                   <td>{item.productQuantity}</td>
-                  <td className="ProductStatus" style={{ color: item.productStatus ? "green" : "red" }}>
+                  <td
+                    className="ProductStatus"
+                    style={{ color: item.productStatus ? "green" : "red" }}
+                  >
                     {item.productStatus ? "Active" : "Inactive"}
                   </td>
                   <td>
-                    <a className="btn btn-outline-primary btn-sm mr-2">
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.location.href = `/viewProduct/${item.productId}`;
+                      }}
+                      className="btn btn-outline-primary btn-sm mr-2"
+                    >
                       <FontAwesomeIcon icon={faEye} />
-                    </a>
+                    </button>
                     &nbsp;&nbsp;
-                    <a className="btn btn-outline-warning btn-sm mr-2">
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.location.href = `/updateProduct/${item.productId}`;
+                      }}
+                      className="btn btn-outline-warning btn-sm mr-2"
+                    >
                       <FontAwesomeIcon icon={faPencilAlt} />
-                    </a>
+                    </button>
                     &nbsp;&nbsp;
-                    <button onClick={() => handleDelete(item)} className="btn btn-outline-danger btn-sm">
+                    <button
+                      onClick={() => handleDelete(item)}
+                      className="btn btn-outline-danger btn-sm"
+                    >
                       <FontAwesomeIcon icon={faTrash} />
                     </button>
                   </td>
