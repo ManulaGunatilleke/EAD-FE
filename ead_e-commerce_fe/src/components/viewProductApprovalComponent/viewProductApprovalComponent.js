@@ -50,7 +50,7 @@ export default function ViewProductApprovalComponent() {
                     <button
                       onClick={(e) => {
                         e.preventDefault();
-                        window.location.href = ``;
+                        window.location.href = `/viewProductApproval/${item.productId}`;
                       }}
                       className="btn btn-outline-primary btn-sm mr-2"
                     >

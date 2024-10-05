@@ -17,6 +17,7 @@ import ViewInventoryLevelsPage from './pages/viewInventoryLevelsPage/viewInvento
 import ViewSingleInventoryProductPage from './pages/viewSingleInventoryProductPage/viewSingleInventoryProductPage';
 import UpdateSingleInventoryPage from './pages/updateSingleInventoryPage/updateSingleInventoryPage';
 import ProductApprovalPage from './pages/productApprovalPage/productApprovalPage';
+import ViewApprovalProductPage from './pages/viewApprovalProductPage/viewApprovalProductPage';
 
 function App() {
   // const [toggle, setToggle] = useState(true)
@@ -38,6 +39,7 @@ function App() {
         <Route path='/viewInventoryProduct/:id' element={<ViewSingleInventoryProductPage/>}/>
         <Route path='/updateInventory/:id' element={<UpdateSingleInventoryPage/>}/>
         <Route path='/productApprovals' element={<ProductApprovalPage/>}/>
+        <Route path='/viewProductApproval/:id' element={<ViewApprovalProductPage/>}/>
       </Routes>
     </Router>
     // <div className='container-fluid bg-secondary min-vh-100 '>
