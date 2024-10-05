@@ -1,9 +1,9 @@
-import React from "react";
+import Index from "../../components/indexPageComponent/indexPage"
 
-export default function Index() {
+export default function IndexPage() {
     return (
         <>
-            <h1>This is index Page</h1>
+            <Index/>
         </>
     )
 }
