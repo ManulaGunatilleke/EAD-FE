@@ -13,6 +13,10 @@ import CreateProduct from './pages/createProductPage/createProductPage';
 import ViewVendorProductPage from './pages/viewVendorProductPage/viewVendorProductPage';
 import ViewSingleProductPage from './pages/viewSingleProductPage/viewSingleProductPage';
 import UpdateProductPage from './pages/updateProductPage/updateProductPage';
+import ViewInventoryLevelsPage from './pages/viewInventoryLevelsPage/viewInventoryLevelsPage';
+import ViewSingleInventoryProductPage from './pages/viewSingleInventoryProductPage/viewSingleInventoryProductPage';
+import UpdateSingleInventoryPage from './pages/updateSingleInventoryPage/updateSingleInventoryPage';
+import ProductApprovalPage from './pages/productApprovalPage/productApprovalPage';
 
 function App() {
   // const [toggle, setToggle] = useState(true)
@@ -30,6 +34,10 @@ function App() {
         <Route path='/viewVendorProducts' element={<ViewVendorProductPage/>}/>
         <Route path='/viewProduct/:id' element={<ViewSingleProductPage/>}/>
         <Route path='/updateProduct/:id' element={<UpdateProductPage/>}/>
+        <Route path='/inventory' element={<ViewInventoryLevelsPage/>}/>
+        <Route path='/viewInventoryProduct/:id' element={<ViewSingleInventoryProductPage/>}/>
+        <Route path='/updateInventory/:id' element={<UpdateSingleInventoryPage/>}/>
+        <Route path='/productApprovals' element={<ProductApprovalPage/>}/>
       </Routes>
     </Router>
     // <div className='container-fluid bg-secondary min-vh-100 '>
