@@ -1,0 +1,92 @@
+.vendorMain {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .header1 {
+    color: #333;
+    font-size: 2.5rem;
+    font-weight: 700;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+  }
+  
+  .box {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    transition: transform 0.2s, background-color 0.2s;
+    color: #333;
+  }
+  
+  .box:hover {
+    transform: scale(1.05);
+    background-color: #e9ecef;
+  }
+  
+  .box h3 {
+    color: #000;
+    font-weight: 600;
+  }
+  
+  .box p {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .box i {
+    color: #333;
+  }
+  
+  .btn-primary {
+    background-color: #000;
+    border-color: #000;
+  }
+  
+  .btn-primary:hover {
+    background-color: #555;
+    border-color: #555;
+  }
+  
+  .Docimg5 {
+    height: 480px;
+    width: 550px;
+    transition: 2s;
+    border: 5px solid black;
+    border-radius: 15px;
+    border-radius: 0% 40% 0% 40%;
+  }
+  
+  .Docimg5:hover {
+    transform: scale(1.1);
+  }
+
+  .ph3div{
+    margin-left: 250px;
+    margin-top: -450px;
+ } 
+
+  .VendorHomeHeading2{
+    font-family: 'Secular One', sans-serif;
+    color: black;
+    font-size: 50px;
+    margin-left: 0px;
+ }
+  
+  .PH3Para {
+    font-family: 'Jost', sans-serif;
+    font-size: 30px;
+  }
+  
+  .PH3Para2 {
+    font-family: 'Jost', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .VendorHomePageThirdPart {
+    background-color: #838395; 
+    padding: 30px;
+    margin-top: 40px; 
+  }
+  
