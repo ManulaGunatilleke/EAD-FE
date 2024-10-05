@@ -26,6 +26,17 @@ import AllUsers from './components/allUsersComponent/allUsersComponent';
 // Vendor Pages
 import RatingPage from './pages/ratingPage/ratingPage';
 
+//Product Mgmt Pages
+import CreateProduct from './pages/createProductPage/createProductPage';
+import ViewVendorProductPage from './pages/viewVendorProductPage/viewVendorProductPage';
+import ViewSingleProductPage from './pages/viewSingleProductPage/viewSingleProductPage';
+import UpdateProductPage from './pages/updateProductPage/updateProductPage';
+import ViewInventoryLevelsPage from './pages/viewInventoryLevelsPage/viewInventoryLevelsPage';
+import ViewSingleInventoryProductPage from './pages/viewSingleInventoryProductPage/viewSingleInventoryProductPage';
+import UpdateSingleInventoryPage from './pages/updateSingleInventoryPage/updateSingleInventoryPage';
+import ProductApprovalPage from './pages/productApprovalPage/productApprovalPage';
+import ViewApprovalProductPage from './pages/viewApprovalProductPage/viewApprovalProductPage';
+
 function App() {
 
   // user and token details pass
@@ -72,6 +83,16 @@ function App() {
             <Route path='/allUsers' element={<AllUsers/>}/>
             <Route path='/profile/:id' element={<Profile/>}/>
             <Route path='/rating/:id' element={<RatingPage/>}/>
+            {/* Product Mgmt Routes */}
+            <Route path='/createProduct' element={<CreateProduct/>}/>
+            <Route path='/viewVendorProducts' element={<ViewVendorProductPage/>}/>
+            <Route path='/viewProduct/:id' element={<ViewSingleProductPage/>}/>
+            <Route path='/updateProduct/:id' element={<UpdateProductPage/>}/>
+            <Route path='/inventory' element={<ViewInventoryLevelsPage/>}/>
+            <Route path='/viewInventoryProduct/:id' element={<ViewSingleInventoryProductPage/>}/>
+            <Route path='/updateInventory/:id' element={<UpdateSingleInventoryPage/>}/>
+            <Route path='/productApprovals' element={<ProductApprovalPage/>}/>
+            <Route path='/viewProductApproval/:id' element={<ViewApprovalProductPage/>}/>
           </Routes>
         <Footer/>
       </UserContext.Provider>
