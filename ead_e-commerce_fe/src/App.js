@@ -9,6 +9,7 @@ import Index from './pages/IndexPage/IndexPage';
 import Home from './pages/homePage/homePage';
 
 import OrderDetails from './components/OrderManagement/OrderDetails';
+import OrderProducts from './components/OrderManagement/OrderProducts';
 
 function App() {
   // const [toggle, setToggle] = useState(true)
@@ -23,6 +24,7 @@ function App() {
         <Route path='' element={<Index/>}/>
         <Route path='/home' element={<Home/>}/>
         <Route path='/viewOrders' element={<OrderDetails/>}/>
+        <Route path="/order/products/:orderId" element={<OrderProducts />} />
       </Routes>
     </Router>
     // <div className='container-fluid bg-secondary min-vh-100 '>
