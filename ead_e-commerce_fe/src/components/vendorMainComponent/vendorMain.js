@@ -5,37 +5,37 @@ export default function VendorMain() {
   return (
     <>
       <div className='vendorMain container'>
-        <h1 className='header1 text-center my-4'>Vendor Dashboard</h1>
+        <h1 className='headervendor text-center my-4'>Vendor Dashboard</h1>
 
         {/* Boxes Section */}
         <div className="row mt-4 text-center">
           <div className="col-md-4">
-            <div className="box p-4">
-              <i className="bi bi-table fs-1 mb-3"></i>
-              <h3>Products</h3>
-              <p>Manage your product inventory efficiently.</p>
+            <div className="box p-4 boxvendor">
+              <i className="bi bi-table fs-1 mb-3 boxi"></i>
+              <h3 className='boxh3'>Products</h3>
+              <p className='boxp'>Manage your product inventory efficiently.</p>
               <div className="text-center mt-4">
-                <button className="btn btn-primary btn-lg">Click Here</button>
+                <button className="btn btn-primary btn-lg boxbutton">Click Here</button>
               </div>
             </div>
           </div>
           <div className="col-md-4">
-            <div className="box p-4">
-              <i className="bi bi-cart4 fs-1 mb-3"></i>
-              <h3>Orders</h3>
-              <p>Track and fulfill customer orders easily.</p>
+            <div className="box p-4 boxvendor">
+              <i className="bi bi-cart4 fs-1 mb-3 boxi"></i>
+              <h3 className='boxh3'>Orders</h3>
+              <p className='boxp'>Track and fulfill customer orders easily.</p>
               <div className="text-center mt-4">
-                <button className="btn btn-primary btn-lg">Click Here</button>
+                <button className="btn btn-primary btn-lg boxbutton">Click Here</button>
               </div>              
             </div>
           </div>
           <div className="col-md-4">
-            <div className="box p-4">
-              <i className="bi bi-graph-up-arrow fs-1 mb-3"></i>
-              <h3>Analytics</h3>
-              <p>Analyze sales and performance metrics.</p>
+            <div className="box p-4 boxvendor">
+              <i className="bi bi-graph-up-arrow fs-1 mb-3 boxi"></i>
+              <h3 className='boxh3'>Analytics</h3>
+              <p className='boxp'>Analyze sales and performance metrics.</p>
               <div className="text-center mt-4">
-                <button className="btn btn-primary btn-lg">Click Here</button>
+                <button className="btn btn-primary btn-lg boxbutton">Click Here</button>
               </div>
             </div>
           </div>

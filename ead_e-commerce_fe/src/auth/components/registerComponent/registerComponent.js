@@ -26,57 +26,57 @@ export default function RegisterComponent() {
         <>
         <div className="registration-container">
             <div className="image-section">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp" alt="Registration" />
+                <img className='registerImage' src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp" alt="Registration" />
             </div>
-            <div className="form-section">
-                <h2>Create Vendor and Customer Support Account Here</h2>
+            <div className="form-section registerform">
+                <h2 className='registerheader'>Create Vendor and Customer Support Account Here</h2>
                 <form onSubmit={handleUserRegister}>
-                    <div className="form-group">
-                        <label htmlFor="name">Name</label>
-                        <input type="text" id="name" name="name" onChange={(e) => setName(e.target.value)} required />
+                    <div className="form-group registergroup">
+                        <label className='registerlabel' htmlFor="name">Name</label>
+                        <input className='registerinput' type="text" id="name" name="name" onChange={(e) => setName(e.target.value)} required />
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="email">Email</label>
-                        <input type="email" id="email" name="email" onChange={(e) => setEmail(e.target.value)} required />
+                    <div className="form-group registergroup">
+                        <label className='registerlabel' htmlFor="email">Email</label>
+                        <input className='registerinput' type="email" id="email" name="email" onChange={(e) => setEmail(e.target.value)} required />
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="text">Address</label>
-                        <input type="text" id="address" name="address" onChange={(e) => setAddress(e.target.value)}/>
+                    <div className="form-group registergroup">
+                        <label className='registerlabel' htmlFor="text">Address</label>
+                        <input className='registerinput' type="text" id="address" name="address" onChange={(e) => setAddress(e.target.value)}/>
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="phone">Phone Number</label>
-                        <input type="number" id="phone" name="phone" onChange={(e) => setPhone(e.target.value)}/>
+                    <div className="form-group registergroup">
+                        <label className='registerlabel' htmlFor="phone">Phone Number</label>
+                        <input className='registerinput' type="number" id="phone" name="phone" onChange={(e) => setPhone(e.target.value)}/>
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="userType">UserType</label>
-                        <select id="userType" name="userType" value={UserType} onChange={(e) => setUserType(e.target.value)} required>
+                    <div className="form-group registergroup">
+                        <label className='registerlabel' htmlFor="userType">UserType</label>
+                        <select className='registerinput' id="userType" name="userType" value={UserType} onChange={(e) => setUserType(e.target.value)} required>
                             <option value="" disabled>Select user Type</option>
                             <option value="Vendor">Vendor</option>
                             <option value="CSR">Customer Support</option>
                         </select>
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="text">Username</label>
-                        <input type="text" id="username" name="username" onChange={(e) => setUsername(e.target.value)} required/>
+                    <div className="form-group registergroup">
+                        <label className='registerlabel' htmlFor="text">Username</label>
+                        <input className='registerinput' type="text" id="username" name="username" onChange={(e) => setUsername(e.target.value)} required/>
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="accountStatus">Account Status</label>
-                        <select id="accountStatus" name="accountStatus" value={AccountStatus} onChange={(e) => setAccountStatus(e.target.value)} required>
+                    <div className="form-group registergroup">
+                        <label className='registerlabel' htmlFor="accountStatus">Account Status</label>
+                        <select className='registerinput' id="accountStatus" name="accountStatus" value={AccountStatus} onChange={(e) => setAccountStatus(e.target.value)} required>
                             <option value="" disabled>Select account status</option>
                             <option value="NotActivate">NotActivate</option>
                             <option value="Activate">Activate</option>
                         </select>
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="password">Password</label>
-                        <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)} required/>
+                    <div className="form-group registergroup">
+                        <label className='registerlabel' htmlFor="password">Password</label>
+                        <input className='registerinput' type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)} required/>
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="avgRating">Average Ratings</label>
-                        <input type="number" id="avgRating" name="avgRating" onChange={(e) => setAvgRating(e.target.value)} required/>
+                    <div className="form-group registergroup">
+                        <label className='registerlabel' htmlFor="avgRating">Average Ratings</label>
+                        <input className='registerinput' type="number" id="avgRating" name="avgRating" onChange={(e) => setAvgRating(e.target.value)} required/>
                     </div>
                     <br/>
-                    <button type="submit">Register Account</button>
+                    <button className='registerbutton' type="submit">Register Account</button>
                 </form>
             </div>
         </div>

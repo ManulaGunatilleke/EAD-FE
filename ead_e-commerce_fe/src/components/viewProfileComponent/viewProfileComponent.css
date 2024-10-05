@@ -110,51 +110,93 @@
     overflow-y: auto;
 }
 
-form {
+.editprofileform {
     max-height: 80vh;
 }
 
-.form-group {
+.editprofilegroup {
     margin-bottom: 15px;
 }
 
-.form-group label {
+.editprofilelabel {
     display: block;
     margin-bottom: 5px;
 }
 
-.form-group input {
+.editprofileinput {
     width: 100%;
     padding: 8px;
     box-sizing: border-box;
 }
 
+.editbutton {
+    width: 100%;
+    padding: 10px; 
+    background-color: #b4b2ab; 
+    color: black; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 20px; 
+}
+
+.editbutton:hover {
+    color: white;
+    background-color: black;
+}
+
+.deletebutton {
+    width: 100%;
+    padding: 10px; 
+    background-color: #b4b2ab; 
+    color: black; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 20px; 
+}
+
+.deletebutton:hover {
+    color: white;
+    background-color: black;
+}
+
 .saveButton {
+    width: 100%;
     margin-right: 15px; 
     margin-bottom: 15px;
     padding: 8px 12px;
     background-color: #b4b2ab;
     color: black;
     border: none;
+    font-size: 20px; 
+    font-weight: 700;
     border-radius: 4px;
     cursor: pointer;
 }
 
 .saveButton:hover {
+    color: white;
     background-color: black;
 }
 
 .cancelButton {
+    width: 100%;
     padding: 8px 12px;
     margin-bottom: 15px;
     background-color: #b4b2ab;
     color: black;
     border: none;
+    font-size: 20px; 
+    font-weight: 700;
     border-radius: 4px;
     cursor: pointer;
 }
 
 .cancelButton:hover {
+    color: white;
     background-color: black;
 }
 
