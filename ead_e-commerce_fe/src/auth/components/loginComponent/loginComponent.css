@@ -15,14 +15,14 @@
 .h-100 {
   height: 100%; 
 }
-.header {
+.headerlogin {
   position: absolute; 
   top: 20px; 
   left: 20px; 
   color: white; 
   font-size: 24px; 
 }
-.header a {
+.headerlogin a {
   color: inherit; 
   text-decoration: none; 
 }
@@ -31,21 +31,24 @@
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
 }
-.card {
+.cardlogin {
   height: 370px;
   width: 400px;
+  border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.9) !important;
 }
 
-.card-header h3 {
+.cardheaderlogin {
   color: white;
+  padding: 10px;
 }
 
-.input-group {
-  margin-bottom: 15px; /* Added margin for spacing */
+.grouplogin {
+  margin-bottom: 15px; 
+  padding: 10px;
 }
 
-.input-group-prepend span {
+.loginspan {
   width: 50px;
   height: 40px;
   background-color: #b4b2ab;
@@ -54,28 +57,25 @@
   margin-right: 10px;
 }
 
-.fas {
+.faslogin {
  font-size: 25px;
-}
-
-input:focus {
-  outline: 0 0 0 0 !important;
-  box-shadow: 0 0 0 0 !important;
 }
 
 .remember {
   color: white;
+  padding: 10px;
 }
 
-.remember input {
+.rememberinput {
   width: 20px;
   height: 20px;
   margin-left: 15px;
   margin-right: 5px;
 }
 
-.form-group.button-container {
-    margin-top: 50px; 
+.buttonContainer {
+    margin-top: 20px; 
+    padding: 10px;
   }
   
   .login_btn {

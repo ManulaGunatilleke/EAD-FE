@@ -28,7 +28,7 @@ export default function Header() {
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a className="navbar-brand fs-4 fw-bold px-4" href="/home">MTB SELLERS</a>
+                <a className="navbar-brand fs-4 fw-bold px-4" href="/home">cart.io</a>
                 <button
                     className="navbar-toggler"
                     type="button"

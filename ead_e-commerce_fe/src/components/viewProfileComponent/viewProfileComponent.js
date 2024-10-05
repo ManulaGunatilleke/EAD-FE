@@ -134,10 +134,10 @@ export default function ViewProfile() {
                                     </div>
                                     <div>
                                         <div className='p-1'>
-                                            <button onClick={handleEditClick}>Edit Profile</button>
+                                            <button className='editbutton' onClick={handleEditClick}>Edit Profile</button>
                                         </div>
                                         <div className='p-1'>
-                                            <button onClick={() => handleDeleteUser(userId)}>Delete Profile</button>
+                                            <button className='deletebutton' onClick={() => handleDeleteUser(userId)}>Delete Profile</button>
                                         </div>
                                     </div>
                                 </div>
@@ -152,37 +152,41 @@ export default function ViewProfile() {
                 <div className="modal">
                     <div className="modal-content">
                         <h2>Edit Profile</h2>
-                        <form onSubmit={handleSubmit}>
-                            <div className="form-group">
-                                <label>Name</label>
+                        <form onSubmit={handleSubmit} className='editprofileform'>
+                            <div className="form-group editprofilegroup">
+                                <label className='editprofilelabel'>Name</label>
                                 <input
+                                    className='editprofileinput'
                                     type="text"
                                     name="name"
                                     value={formData.name}
                                     onChange={handleInputChange}
                                 />
                             </div>
-                            <div className="form-group">
-                                <label>Phone</label>
+                            <div className="form-group editprofilegroup">
+                                <label className='editprofilelabel'>Phone</label>
                                 <input
+                                    className='editprofileinput'
                                     type="text"
                                     name="phone"
                                     value={formData.phone}
                                     onChange={handleInputChange}
                                 />
                             </div>
-                            <div className="form-group">
-                                <label>Email</label>
+                            <div className="form-group editprofilegroup">
+                                <label className='editprofilelabel'>Email</label>
                                 <input
+                                    className='editprofileinput'
                                     type="email"
                                     name="email"
                                     value={formData.email}
                                     onChange={handleInputChange}
                                 />
                             </div>
-                            <div className="form-group">
-                                <label>User Type</label>
+                            <div className="form-group editprofilegroup">
+                                <label className='editprofilelabel'>User Type</label>
                                 <input
+                                    className='editprofileinput'
                                     type="text"
                                     name="userType"
                                     value={formData.userType}
@@ -190,36 +194,40 @@ export default function ViewProfile() {
                                     readOnly
                                 />
                             </div>
-                            <div className="form-group">
-                                <label>Address</label>
+                            <div className="form-group editprofilegroup">
+                                <label className='editprofilelabel'>Address</label>
                                 <input
+                                    className='editprofileinput'
                                     type="text"
                                     name="address"
                                     value={formData.address}
                                     onChange={handleInputChange}
                                 />
                             </div>
-                            <div className="form-group">
-                                <label>Username</label>
+                            <div className="form-group editprofilegroup">
+                                <label className='editprofilelabel'>Username</label>
                                 <input
+                                    className='editprofileinput'
                                     type="text"
                                     name="username"
                                     value={formData.username}
                                     onChange={handleInputChange}
                                 />
                             </div>
-                            <div className="form-group">
-                                <label>Password</label>
+                            <div className="form-group editprofilegroup">
+                                <label className='editprofilelabel'>Password</label>
                                 <input
+                                    className='editprofileinput'
                                     type="password"
                                     name="password"
                                     value={formData.password}
                                     onChange={handleInputChange}
                                 />
                             </div>
-                            <div className="form-group">
-                                <label>AvgRating</label>
+                            <div className="form-group editprofilegroup">
+                                <label className='editprofilelabel'>AvgRating</label>
                                 <input
+                                    className='editprofileinput'
                                     type="number"
                                     name="avgRating"
                                     value={formData.avgRating}
