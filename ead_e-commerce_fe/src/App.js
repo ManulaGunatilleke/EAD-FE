@@ -37,6 +37,11 @@ import UpdateSingleInventoryPage from './pages/updateSingleInventoryPage/updateS
 import ProductApprovalPage from './pages/productApprovalPage/productApprovalPage';
 import ViewApprovalProductPage from './pages/viewApprovalProductPage/viewApprovalProductPage';
 
+import OrderDetails from './components/OrderManagement/OrderDetails';
+import OrderProducts from './components/OrderManagement/OrderProducts';
+import ViewOrderDetailsPage from './pages/viewOrderDetailsPage/viewOrderDetailsPage';
+
+
 function App() {
 
   // user and token details pass
@@ -83,6 +88,7 @@ function App() {
             <Route path='/allUsers' element={<AllUsers/>}/>
             <Route path='/profile/:id' element={<Profile/>}/>
             <Route path='/rating/:id' element={<RatingPage/>}/>
+
             {/* Product Mgmt Routes */}
             <Route path='/createProduct' element={<CreateProduct/>}/>
             <Route path='/viewVendorProducts' element={<ViewVendorProductPage/>}/>
@@ -93,6 +99,9 @@ function App() {
             <Route path='/updateInventory/:id' element={<UpdateSingleInventoryPage/>}/>
             <Route path='/productApprovals' element={<ProductApprovalPage/>}/>
             <Route path='/viewProductApproval/:id' element={<ViewApprovalProductPage/>}/>
+
+            <Route path='/orderDetails' element={<ViewOrderDetailsPage/>}/>
+            <Route path='/order/products/:orderId' element={<OrderProducts/>}/>
           </Routes>
         <Footer/>
       </UserContext.Provider>
