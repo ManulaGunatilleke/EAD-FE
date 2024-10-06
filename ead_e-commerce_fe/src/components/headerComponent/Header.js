@@ -49,7 +49,13 @@ export default function Header() {
                                     <a className="nav-link fs-5" href="/registerAccount">Create Account</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link fs-5" href="/notActivateAccounts">Not Activate</a>
+                                    <a className="nav-link fs-5" href="/notActivateAccounts">Account Activation</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link fs-5" href="/productApprovals">Product Approval</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link fs-5" href="/inventory">Inventory</a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link fs-5" href="/allUsers">All Users</a>
@@ -77,7 +83,7 @@ export default function Header() {
                                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul className="navbar-nav mr-auto">
                                         <li className="nav-item">
-                                            <a className="nav-link fs-5" href="#">Products</a>
+                                            <a className="nav-link fs-5" href={`/viewVendorProducts`}>Products</a>
                                         </li>
                                         <li className="nav-item">
                                             <a className="nav-link fs-5" href={`/rating/${userId}`}>My Ratings</a>

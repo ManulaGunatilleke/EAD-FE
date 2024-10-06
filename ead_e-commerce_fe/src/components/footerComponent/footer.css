@@ -3,6 +3,8 @@
     color: #fff;
     padding: 20px 0;
     text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
 }
 
 .footer .container {
@@ -27,4 +29,8 @@
 
 .social-links a:hover {
     text-decoration: underline;
+}
+
+.cartIoFooter{
+    margin-top: 3%
 }

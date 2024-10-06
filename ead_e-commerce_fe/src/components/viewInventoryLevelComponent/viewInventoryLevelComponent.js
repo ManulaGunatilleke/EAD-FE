@@ -34,48 +34,52 @@ export default function ViewInventoryLevelComponent() {
         </thead>
         <tbody>
           {products &&
-            products.map((item, index) => {
-              return (
-                <tr key={index}>
-                  <td>{item.productName}</td>
-                  <td className="text-uppercase">{item.productCategory}</td>
-                  <td>{item.productQuantity}</td>
-                  <td
-                    className="ProductStatus"
-                    style={{ color: item.productStatus ? "green" : "red" }}
-                  >
-                    {item.productStatus ? "Active" : "Inactive"}
-                  </td>
-                  <td
-                    className="ProductAvailability"
-                    style={{ color: item.productQuantity > 0 ? "green" : "red" }}
-                  >
-                    {item.productQuantity > 0 ? "Available" : "Out of Stock"}
-                  </td>
-                  <td>
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        window.location.href = `/viewInventoryProduct/${item.productId}`;
-                      }}
-                      className="btn btn-outline-primary btn-sm mr-2"
+            products
+              .filter((item) => item.productStatus) // Only show active products
+              .map((item, index) => {
+                return (
+                  <tr key={index}>
+                    <td>{item.productName}</td>
+                    <td className="text-uppercase">{item.productCategory}</td>
+                    <td>{item.productQuantity}</td>
+                    <td
+                      className="ProductStatus"
+                      style={{ color: item.productStatus ? "green" : "red" }}
                     >
-                      <FontAwesomeIcon icon={faEye} />
-                    </button>
-                    &nbsp;&nbsp;
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        window.location.href = `/updateInventory/${item.productId}`;
+                      {item.productStatus ? "Active" : "Inactive"}
+                    </td>
+                    <td
+                      className="ProductAvailability"
+                      style={{
+                        color: item.productQuantity > 0 ? "green" : "red",
                       }}
-                      className="btn btn-outline-warning btn-sm mr-2"
                     >
-                      <FontAwesomeIcon icon={faPencilAlt} />
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
+                      {item.productQuantity > 0 ? "Available" : "Out of Stock"}
+                    </td>
+                    <td>
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          window.location.href = `/viewInventoryProduct/${item.productId}`;
+                        }}
+                        className="btn btn-outline-primary btn-sm mr-2"
+                      >
+                        <FontAwesomeIcon icon={faEye} />
+                      </button>
+                      &nbsp;&nbsp;
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          window.location.href = `/updateInventory/${item.productId}`;
+                        }}
+                        className="btn btn-outline-warning btn-sm mr-2"
+                      >
+                        <FontAwesomeIcon icon={faPencilAlt} />
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
         </tbody>
       </table>
     </div>

@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import UserContext from '../../ContextComponent/ContextComponent';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../createProductComponent/createProductComponent.css";
 import useCreateProduct from "../../hooks/ProductMgmt/useCreateProduct";
 
 export default function CreateProductComponent() {
+  const { userId } = useContext(UserContext);
+  const vendorId = userId;
+
   const { createProduct } = useCreateProduct();
 
-  const productVendor = "dbsisvbsvvvwv";
+  const productVendor = vendorId;
   const productAvailability = false;
   const productStatus = false;
 

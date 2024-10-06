@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import UseViewProductById from "../../hooks/ProductMgmt/useViewProductById";
+import '../viewSingleProductComponent/viewSingleProductComponent.css';
 
 export default function ViewSingleProductComponent() {
   const { id } = useParams();
@@ -13,13 +14,13 @@ export default function ViewSingleProductComponent() {
   }, [id, viewOneProductById]);
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 singleProductCard">
       <h1 className="text-center mb-4">
         {product ? product.productName : "View Product"}
       </h1>
       <div className="card mb-4 shadow-lg">
         <div className="row g-0">
-          <div className="col-md-6">
+          <div className="col-md-4">
             {product && (
               <img
                 src={product.productImage}
