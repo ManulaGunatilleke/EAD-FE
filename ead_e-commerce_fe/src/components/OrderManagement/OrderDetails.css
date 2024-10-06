@@ -1,0 +1,60 @@
+.order-card {
+    background: rgba(173, 216, 230, 0.3); /* Light blue glass effect */
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow for better visibility */
+    backdrop-filter: blur(12px) saturate(150%); /* Glass effect with blur */
+    border: 1px solid rgba(173, 216, 230, 0.5); /* Light blue border */
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.order-card:hover {
+    transform: translateY(-5px); /* Lift the card slightly on hover */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Elevate the shadow on hover */
+}
+
+.order-card .card-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #003366; /* Darker blue for better contrast */
+    margin-bottom: 10px;
+}
+
+.order-info {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #333; /* Darker text for readability */
+}
+
+.order-info span {
+    font-weight: bold;
+    color: #003366; /* Add a dark blue color to the order values */
+}
+
+.order-card .dropdown-menu {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px); /* Blur for dropdown as well */
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.order-card .btn-primary {
+    background-color: #4a90e2;
+    border-color: #4a90e2;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.order-card .btn-primary:hover {
+    background-color: #357ab8;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Enhance button hover effect */
+}
+
+.success-message {
+    color: green;
+    font-weight: bold;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+}
