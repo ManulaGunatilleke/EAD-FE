@@ -32,12 +32,14 @@ export default function NotActivate() {
             <h1 className='notActiveh1'>Not Activate Accounts</h1>
             <div className="search-bar">
                 <input
+                    className='searchbarinput'
                     type="text"
                     placeholder="Search by Name"
                     value={searchName}
                     onChange={e => setSearchName(e.target.value)}
                 />
                 <select
+                    className='searchbarselect'
                     value={searchUserType}
                     onChange={e => setSearchUserType(e.target.value)}
                 >
@@ -47,24 +49,24 @@ export default function NotActivate() {
                     <option value="Customer">Customer</option>
                 </select>
             </div>
-            <table className="data-table">
+            <table className="data-table notactivatetable">
                 <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>User Type</th>
-                        <th>Action</th>
+                    <tr className='notactivatetr'>
+                        <th className='notactivateth'>Name</th>
+                        <th className='notactivateth'>Email</th>
+                        <th className='notactivateth'>Phone</th>
+                        <th className='notactivateth'>User Type</th>
+                        <th className='notactivateth'>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {filteredData.map((user, index) => (  // Use filteredData instead of users
-                        <tr key={index}>
-                            <td>{user.name}</td>
-                            <td>{user.email}</td>
-                            <td>{user.phone}</td>
-                            <td>{user.userType}</td>
-                            <td>
+                        <tr className='notactivatetr' key={index}>
+                            <td className='notactivatetd'>{user.name}</td>
+                            <td className='notactivatetd'>{user.email}</td>
+                            <td className='notactivatetd'>{user.phone}</td>
+                            <td className='notactivatetd'>{user.userType}</td>
+                            <td className='notactivatetd'>
                                 <button className='activeButton' onClick={() => handleActivate(user.userId)}>
                                     Activate
                                 </button>

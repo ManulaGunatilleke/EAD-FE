@@ -31,16 +31,18 @@ export default function AllUsers() {
 
     return (
         <>
-            <div className="not-activate">
-                <h1 className='notActiveh1'>Not Activate Accounts</h1>
-                <div className="search-bar">
+            <div className="allUser">
+                <h1 className='allUser1'>All Users Accounts</h1>
+                <div className="search-bar allUsersearch">
                     <input
+                        className='allUserinput'
                         type="text"
                         placeholder="Search by Name"
                         value={searchName}
                         onChange={e => setSearchName(e.target.value)}
                     />
                     <select
+                        className='allUserselect'
                         value={searchUserType}
                         onChange={e => setSearchUserType(e.target.value)}
                     >
@@ -50,28 +52,28 @@ export default function AllUsers() {
                         <option value="Customer">Customer</option>
                     </select>
                 </div>
-                <table className="data-table">
+                <table className="data-table allusertable">
                     <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>User Type</th>
-                            <th>Address</th>
-                            <th>Username</th>
-                            <th>Action</th>
+                        <tr className='allusertr'>
+                            <th className='alluserth'>Name</th>
+                            <th className='alluserth'>Email</th>
+                            <th className='alluserth'>Phone</th>
+                            <th className='alluserth'>User Type</th>
+                            <th className='alluserth'>Address</th>
+                            <th className='alluserth'>Username</th>
+                            <th className='alluserth'>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {filteredData.map((user, index) => (  // Use filteredData instead of users
-                            <tr key={index}>
-                                <td>{user.name}</td>
-                                <td>{user.email}</td>
-                                <td>{user.phone}</td>
-                                <td>{user.userType}</td>
-                                <td>{user.address}</td>
-                                <td>{user.username}</td>
-                                <td>
+                            <tr className='allusertr' key={index}>
+                                <td className='allusertd'>{user.name}</td>
+                                <td className='allusertd'>{user.email}</td>
+                                <td className='allusertd'>{user.phone}</td>
+                                <td className='allusertd'>{user.userType}</td>
+                                <td className='allusertd'>{user.address}</td>
+                                <td className='allusertd'>{user.username}</td>
+                                <td className='allusertd'>
                                     <button className='allUsersDeleteButton' onClick={() => handleDeleteUser(user)}>
                                         Delete Account
                                     </button>

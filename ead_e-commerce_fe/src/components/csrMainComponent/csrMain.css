@@ -3,7 +3,7 @@
     padding-right: 20px;
   }
   
-  .header3 {
+  .headercsr {
     color: #333;
     font-size: 2.5rem;
     font-weight: 700;
@@ -11,7 +11,7 @@
     padding-bottom: 10px;
   }
   
-  .box {
+  .boxcsr {
     background-color: #f8f9fa;
     border: 1px solid #dee2e6;
     border-radius: 8px;
@@ -19,31 +19,31 @@
     color: #333;
   }
   
-  .box:hover {
+  .boxcsr:hover {
     transform: scale(1.05);
     background-color: #e9ecef;
   }
   
-  .box h3 {
+  .boxh3 {
     color: #000;
     font-weight: 600;
   }
   
-  .box p {
+  .boxp {
     font-size: 0.9rem;
     color: #666;
   }
   
-  .box i {
+  .boxi {
     color: #333;
   }
   
-  .btn-primary {
+  .boxcsrbutton {
     background-color: #000;
     border-color: #000;
   }
   
-  .btn-primary:hover {
+  .boxcsrbutton:hover {
     background-color: #555;
     border-color: #555;
   }

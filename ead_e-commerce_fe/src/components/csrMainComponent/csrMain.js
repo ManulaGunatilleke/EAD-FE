@@ -5,37 +5,37 @@ export default function CSRMain() {
   return (
     <>
       <div className='csrMain container'>
-        <h1 className='header3 text-center my-4'>Customer Support Representative Dashboard</h1>
+        <h1 className='headercsr text-center my-4'>Customer Support Representative Dashboard</h1>
 
         {/* Boxes Section */}
         <div className="row mt-4 text-center">
           <div className="col-md-4">
-            <div className="box p-4">
-              <i className="bi bi-person-add fs-1 mb-3"></i>
-              <h3>Cutomer Request</h3>
-              <p>Manage your customer request efficiently.</p>
+            <div className="box p-4 boxcsr">
+              <i className="bi bi-person-add fs-1 mb-3 boxi"></i>
+              <h3 className='boxh3'>Cutomer Request</h3>
+              <p className='boxp'>Manage your customer request efficiently.</p>
               <div className="text-center mt-4">
-                <button className="btn btn-primary btn-lg">Click Here</button>
+                <button className="btn btn-primary btn-lg boxcsrbutton">Click Here</button>
               </div>
             </div>
           </div>
           <div className="col-md-4">
-            <div className="box p-4">
-              <i className="bi bi-cart-x fs-1 mb-3"></i>
-              <h3>Cancel Orders</h3>
-              <p>Track and cancel customer orders properly.</p>
+            <div className="box p-4 boxcsr">
+              <i className="bi bi-cart-x fs-1 mb-3 boxi"></i>
+              <h3 className='boxh3'>Cancel Orders</h3>
+              <p className='boxp'>Track and cancel customer orders properly.</p>
               <div className="text-center mt-4">
-                <button className="btn btn-primary btn-lg">Click Here</button>
+                <button className="btn btn-primary btn-lg boxcsrbutton">Click Here</button>
               </div>              
             </div>
           </div>
           <div className="col-md-4">
-            <div className="box p-4">
-              <i className="bi bi-graph-up-arrow fs-1 mb-3"></i>
-              <h3>Analytics</h3>
-              <p>Analyze sales and performance metrics.</p>
+            <div className="box p-4 boxcsr">
+              <i className="bi bi-graph-up-arrow fs-1 mb-3 boxi"></i>
+              <h3 className='boxh3'>Analytics</h3>
+              <p className='boxp'>Analyze sales and performance metrics.</p>
               <div className="text-center mt-4">
-                <button className="btn btn-primary btn-lg">Click Here</button>
+                <button className="btn btn-primary btn-lg boxcsrbutton">Click Here</button>
               </div>
             </div>
           </div>

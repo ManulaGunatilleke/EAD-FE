@@ -1,5 +1,5 @@
 .not-activate {
-    background-image: url('https://mdbootstrap.com/img/Photos/new-templates/tables/img2.jpg');
+    /* background-image: url('https://mdbootstrap.com/img/Photos/new-templates/tables/img2.jpg'); */
     background-size: cover;
     background-position: center;
     color: white; 
@@ -20,55 +20,57 @@
     margin-bottom: 20px;
 }
 
-.search-bar input {
+.searchbarinput {
     padding: 10px;
+    width: 550px;
     margin-right: 10px;
     border: 1px solid gray;
     border-radius: 5px;
-    background-color: white; /* Search input background */
+    background-color: white;
 }
 
-.search-bar select {
+.searchbarselect {
     padding: 10px;
+    width: 550px;
     border: 1px solid gray;
     border-radius: 5px;
-    background-color: white; /* Dropdown background */
+    background-color: white; 
 }
 
-.data-table {
+.notactivatetable {
     width: 100%;
     border-collapse: collapse;
-    background-color: rgba(0, 0, 0, 0.7); /* Table background color */
+    background-color: rgba(0, 0, 0, 0.7); 
 }
 
-.data-table th,
-.data-table td {
+.notactivateth,
+.notactivatetd {
     border: 1px solid gray;
     padding: 10px;
     text-align: left;
 }
 
-.data-table th {
-    background-color: gray; /* Header background color */
+.notactivateth {
+    background-color: gray;
 }
 
-.data-table tr:nth-child(even) {
-    background-color: rgba(255, 255, 255, 0.1); /* Lighten even rows */
+.notactivatetr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-.data-table tr:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Hover effect */
+.notactivatetr:hover {
+    background-color: rgba(255, 255, 255, 0.2); 
 }
 
 .activeButton {
     padding: 5px 10px;
-    background-color: #4CAF50; /* Green background for the button */
-    color: white; /* Text color */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
 }
 
 .activeButton:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #45a049; 
 }
