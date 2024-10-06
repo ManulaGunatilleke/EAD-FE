@@ -8,11 +8,30 @@ export const useCancelOrderById = () => {
 
   const cancelOrder = async (orderId, cancellationNote) => {
     setLoading(true);
+    setError(null); // Reset error state before making a request
+    setSuccess(false); // Reset success state before making a request
+
     try {
-      const response = await axios.put(`${process.env.REACT_APP_API_URL}/order/cancel/${orderId}`, { cancellationNote });
-      setSuccess(true);
+      // Ensure the cancellation note is properly formatted
+      const response = await axios.put(
+        `${process.env.REACT_APP_API_URL}/Order/cancel/${orderId}`,
+        { cancellationNote }, // Correctly formatted body
+        {
+          headers: {
+            'Content-Type': 'application/json', // Ensure content type is set
+          },
+        }
+      );
+      
+      // Handle success state
+      if (response.status === 200) {
+        setSuccess(true);
+      }
+
+      return response.data; // Return response for further handling if needed
     } catch (err) {
-      setError(err.message);
+      // Capture and set error message
+      setError(err.response?.data?.message || err.message); // Improved error handling
     } finally {
       setLoading(false);
     }
