@@ -39,6 +39,9 @@ import ViewApprovalProductPage from './pages/viewApprovalProductPage/viewApprova
 
 import OrderDetails from './components/OrderManagement/OrderDetails';
 import OrderProducts from './components/OrderManagement/OrderProducts';
+import ViewOrderDetailsPage from './pages/viewOrderDetailsPage/viewOrderDetailsPage';
+
+
 function App() {
 
   // user and token details pass
@@ -97,7 +100,7 @@ function App() {
             <Route path='/productApprovals' element={<ProductApprovalPage/>}/>
             <Route path='/viewProductApproval/:id' element={<ViewApprovalProductPage/>}/>
 
-            <Route path='/orderDetails' element={<OrderDetails/>}/>
+            <Route path='/orderDetails' element={<ViewOrderDetailsPage/>}/>
             <Route path='/order/products/:orderId' element={<OrderProducts/>}/>
           </Routes>
         <Footer/>
