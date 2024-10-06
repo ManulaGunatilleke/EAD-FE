@@ -14,10 +14,9 @@ export default function Footer() {
 
     return (
         <>
-            <br/><br/>
-            <footer className="footer">
+            <footer className="footer cartIoFooter">
                 <div className="container">
-                    <p>&copy; {new Date().getFullYear()} MTB Sellers. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} Made with ❤️ by Bihesha, Manula & Teshan.</p>
                     <div className="social-links">
                         <a href="#facebook" aria-label="Facebook">Facebook</a>
                         <a href="#twitter" aria-label="Twitter">YouTube</a>

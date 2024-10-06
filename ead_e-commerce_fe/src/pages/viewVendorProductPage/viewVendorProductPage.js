@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import UserContext from '../../ContextComponent/ContextComponent';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./viewVendorProductPage.css";
 import ViewVendorProductComponent from "../../components/viewVendorProductsComponent/viewVendorProductComponent";
 
 export default function ViewVendorProductPage() {
+
+  const { user } = useContext(UserContext);
+  const userName = user.username;
+
   // State to manage loading
   const [loading, setLoading] = useState(true);
 
@@ -11,7 +16,7 @@ export default function ViewVendorProductPage() {
     // Simulate loading for 5 seconds
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 3500);
 
     return () => clearTimeout(timer);
   }, []); // Only runs on mount
@@ -27,14 +32,14 @@ export default function ViewVendorProductPage() {
         </div>
       ) : (
         <div className="container text-center">
-          <h1 className="viewProductHeading mb-4">@Username's Products</h1>
+          <h1 className="viewProductHeading mb-4">@{userName}'s Products</h1>
           <form
             action="#"
             className="viewCourseBG border rounded bg-light p-4 shadow"
           >
             <div className="d-flex justify-content-between align-items-center">
               <h2 className="fs-4 fw-normal">
-                @Username's Product Catalog on cart.io 🛒
+              @{userName}'s Product Catalog on cart.io 🛒
               </h2>
               <button
                 type="button"

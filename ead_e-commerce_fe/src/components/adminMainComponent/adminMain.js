@@ -62,6 +62,56 @@ export default function AdminMain() {
     <>
       <div className='adminMain'>
         <h1 className='header2 text-center my-4'>Admin Dashboard</h1>
+        <div className="row mt-4 text-center">
+          <div className="col-md-4">
+            <div className="box p-4 boxvendor">
+              <i className="bi bi-check2-circle fs-1 mb-3 boxi"></i>
+              <h3 className="boxh3">Product Approval</h3>
+              <p className="boxp">Approve or reject the products submitted to cart.io</p>
+              <div className="text-center mt-4">
+                <button
+                  className="btn btn-primary btn-lg boxbutton"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = `/productApprovals`;
+                  }}
+                >
+                  Click Here
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-4">
+            <div className="box p-4 boxvendor">
+              <i className="bi bi-table fs-1 mb-3 boxi"></i>
+              <h3 className="boxh3">Inventory</h3>
+              <p className="boxp">Manage your product inventory efficiently.</p>
+              <div className="text-center mt-4">
+                <button
+                  className="btn btn-primary btn-lg boxbutton"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = `/inventory`;
+                  }}
+                >
+                  Click Here
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-4">
+            <div className="box p-4 boxvendor">
+              <i className="bi bi-cart4 fs-1 mb-3 boxi"></i>
+              <h3 className="boxh3">Orders</h3>
+              <p className="boxp">Track and fulfill customer orders easily.</p>
+              <div className="text-center mt-4">
+                <button className="btn btn-primary btn-lg boxbutton">
+                  Click Here
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
           <div className="px-3">
             <div className="container-fluid">
               <div className="row g-3 my-2">

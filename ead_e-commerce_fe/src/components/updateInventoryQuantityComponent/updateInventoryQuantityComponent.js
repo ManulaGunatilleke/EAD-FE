@@ -118,11 +118,11 @@ export default function UpdateInventory() {
                 className="btn btn-secondary w-100"
                 onClick={(e) => {
                   e.preventDefault();
-                  window.location.href = `/viewVendorProducts`;
+                  window.location.href = `/inventory`;
                 }}
                 style={{ fontSize: "20px" }}
               >
-                Back to Products
+                Back to Inventory
               </button>
             </div>
           </div>

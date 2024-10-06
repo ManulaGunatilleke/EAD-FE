@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
+import axios from "axios";
+import UserContext from "../../ContextComponent/ContextComponent";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPencilAlt, faEye } from "@fortawesome/free-solid-svg-icons";
 import "../viewVendorProductsComponent/viewVendorProductComponent.css";
-import useAllProducts from "../../hooks/ProductMgmt/useViewAllProducts";
 import useDeleteProduct from "../../hooks/ProductMgmt/useDeleteProduct";
 
 export default function ViewVendorProductComponent() {
-  const { products } = useAllProducts();
+  const { userId } = useContext(UserContext);
+  const vendorId = userId;
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  const getProducts = async () => {
+    const response = await axios.get(`https://localhost:44366/api/Product/getProductsByVendor/${vendorId}`);
+
+    if(response.status === 200) {
+      setData(response.data);
+    }
+  }
 
   const onDeleteProduct = useDeleteProduct();
 
@@ -46,8 +62,8 @@ export default function ViewVendorProductComponent() {
           </tr>
         </thead>
         <tbody>
-          {products &&
-            products.map((item, index) => {
+          {data &&
+            data.map((item, index) => {
               return (
                 <tr key={index}>
                   <td>{item.productName}</td>

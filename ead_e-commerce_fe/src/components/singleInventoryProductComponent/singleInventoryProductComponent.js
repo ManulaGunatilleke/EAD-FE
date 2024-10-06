@@ -19,7 +19,7 @@ export default function SingleInventoryProductComponent() {
       </h1>
       <div className="card mb-4 shadow-lg">
         <div className="row g-0">
-          <div className="col-md-6">
+          <div className="col-md-4">
             {product && (
               <img
                 src={product.productImage}
