@@ -1,0 +1,32 @@
+.container {
+    width: 100%;
+    max-width: 1200px; /* Limit the max width for better readability */
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .order-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ensure 3 cards per row */
+    gap: 20px; /* Space between the cards */
+    padding: 20px;
+  }
+  
+  @media (min-width: 768px) {
+    .order-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 cards per row on medium screens */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .order-grid {
+      grid-template-columns: repeat(3, 1fr); /* 3 cards per row on larger screens */
+    }
+  }
+  
+  .container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  

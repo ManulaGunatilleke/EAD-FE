@@ -1,95 +1,157 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Table } from 'react-bootstrap';
+import { Card, Button, Dropdown, DropdownButton } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import useSendEmailToCustomer from '../../hooks/OrderManagement/useSendEmailToCustomer';
+import { useUpdateOrderById } from '../../hooks/OrderManagement/useUpdateOrderById';
+import { useCancelOrderById } from '../../hooks/OrderManagement/useCancelOrderById'; // Importing the cancel hook
+import CancelPopup from './CancelPopup'; // Import the CancelPopup component
+import './OrderDetails.css'; // Import the CSS file
 
-const OrderDetails = () => {
-  const [orderDetails, setOrderDetails] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+const OrderDetails = ({ order }) => {
+  const navigate = useNavigate();
+  const { sendEmailToCustomer } = useSendEmailToCustomer();
+  const { updateOrder, loading: updateLoading, error: updateError } = useUpdateOrderById();
+  const { cancelOrder, loading: cancelLoading, error: cancelError, success: cancelSuccess } = useCancelOrderById(); // Using the cancel hook
+  const [successMessages, setSuccessMessages] = useState({});
+  const [emailErrors, setEmailErrors] = useState({});
 
-  // Correctly define the id as a string
-  const id = "66f842c6fe19739e2b0ff221";
+  // Local state to manage order and delivery status
+  const [orderStatus, setOrderStatus] = useState(order.orderStatus);
+  const [deliveryStatus, setDeliveryStatus] = useState(order.deliveryStatus);
+  const [showCancelPopup, setShowCancelPopup] = useState(false); // State to manage popup visibility
 
+  // Function to check the product statuses and update deliveryStatus
+  const updateDeliveryStatus = () => {
+    const allProductsDelivered = order.products.every(product => product.productStatus);
+    
+    // Update delivery status if all products are delivered
+    if (allProductsDelivered) {
+      setDeliveryStatus('Delivered');
+    } else {
+      setDeliveryStatus('Not Delivered');
+    }
+  };
+
+  // useEffect to monitor changes in product statuses and update delivery status accordingly
   useEffect(() => {
-    axios.get(`https://localhost:44366/api/Order/get/${id}`)
-      .then(response => {
-        console.log('API response:', response.data);
-        setOrderDetails(response.data);
-        setLoading(false);
+    updateDeliveryStatus();
+  }, [order.products]); // Trigger the effect whenever products array changes
+
+  const handleStatusChange = (orderId, newStatus) => {
+    // Immediately update local state for real-time UI change (optimistic update)
+    setOrderStatus(newStatus);
+
+    const updatedOrder = {
+      ...order,
+      orderStatus: newStatus,
+      deliveryStatus: deliveryStatus, // Sync with current delivery status
+      orderDate: new Date(order.orderDate).toISOString(),
+    };
+
+    // Prevent setting to "Delivered" if all products are not delivered
+    if (newStatus === 'Delivered' && deliveryStatus === 'Not Delivered') {
+      console.log('Cannot mark order as delivered when not all products are delivered.');
+      // Revert back to previous status in case of invalid change
+      setOrderStatus(order.orderStatus);
+      return;
+    }
+
+    // Call the backend API to update the order status
+    updateOrder(orderId, updatedOrder)
+      .then(() => {
+        // Success handling
+        setSuccessMessages((prevMessages) => ({
+          ...prevMessages,
+          [orderId]: 'Order status updated successfully!',
+        }));
+
+        // After success, update the backend state (if required)
+        setTimeout(() => {
+          setSuccessMessages((prevMessages) => {
+            const { [orderId]: removedMessage, ...rest } = prevMessages;
+            return rest;
+          });
+        }, 3000);
       })
-      .catch(error => {
-        console.error('Error fetching order details:', error);
-        setError('Failed to load order details');
-        setLoading(false);
+      .catch((error) => {
+        // Rollback the UI in case of an error
+        console.error('Error updating order:', error);
+        setOrderStatus(order.orderStatus); // Revert to previous state
       });
-  }, [id]);
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+    const emailDetails = {
+      subject: `Your order status has been updated to: ${newStatus}`,
+      toEmail: order.userEmail,
+      fromName: 'Your Shop',
+      message: `Dear customer, your order #${order.orderNumber} has been updated to '${newStatus}'. Thank you for shopping with us!`,
+    };
 
-  if (error) {
-    return <p>{error}</p>;
-  }
+    sendEmailToCustomer(emailDetails)
+      .then((response) => {
+        console.log('Email sent successfully:', response);
+      })
+      .catch((error) => {
+        console.error('Error sending email:', error);
+        setEmailErrors((prevErrors) => ({
+          ...prevErrors,
+          [order.id]: 'Failed to send email notification',
+        }));
+      });
+  };
+
+  const handleViewProducts = (orderId) => {
+    navigate(`/order/products/${orderId}`);
+  };
+
+  // Function to handle cancellation and show the popup
+  const handleCancelOrder = (cancellationNote) => {
+    cancelOrder(order.id, cancellationNote);
+    setShowCancelPopup(false); // Close the popup after submission
+  };
 
   return (
-    <div className="container">
-      <h1>Order Details</h1>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Order Number</th>
-            <th>User ID</th>
-            <th>Total Price</th>
-            <th>Delivery Status</th>
-            <th>Order Status</th>
-            <th>Order Date</th>
-            <th>Cancellation Note</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{orderDetails.orderNumber}</td>
-            <td>{orderDetails.userId}</td>
-            <td>{orderDetails.totalPrice}</td>
-            <td>{orderDetails.deliveryStatus}</td>
-            <td>{orderDetails.orderStatus}</td>
-            <td>{new Date(orderDetails.orderDate).toLocaleString()}</td>
-            <td>{orderDetails.isCancel ? orderDetails.cancellationNote : 'N/A'}</td>
-          </tr>
-        </tbody>
-      </Table>
+    <Card key={order.id} className="order-card glass-effect shadow-sm">
+      <Card.Body>
+        <Card.Title>Order #{order.orderNumber}</Card.Title>
+        <Card.Text className="order-info">User ID: <span>{order.userId}</span></Card.Text>
+        <Card.Text className="order-info">User Email: <span>{order.userEmail}</span></Card.Text>
+        <Card.Text className="order-info">Total Price: <span>${order.totalPrice}</span></Card.Text>
+        <Card.Text className="order-info">Delivery Status: <span>{deliveryStatus}</span></Card.Text>
+        <Card.Text className="order-info">Order Status: <span>{orderStatus}</span></Card.Text>
+        <Card.Text className="order-info">Order Date: <span>{new Date(order.orderDate).toLocaleString()}</span></Card.Text>
+        <Card.Text className="order-info">Cancellation Note: <span>{order.isCancel ? order.cancellationNote : 'N/A'}</span></Card.Text>
 
-      <h2>Products</h2>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Product Name</th>
-            <th>Category</th>
-            <th>Description</th>
-            <th>Quantity</th>
-            <th>Vendor</th>
-            <th>Status</th>
-            <th>Availability</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orderDetails.products.map((product, index) => (
-            <tr key={index}>
-              <td>{product.productName}</td>
-              <td>{product.productCategory}</td>
-              <td>{product.productDescription}</td>
-              <td>{product.productQuantity}</td>
-              <td>{product.productVendor}</td>
-              <td>{product.productStatus ? 'Active' : 'Inactive'}</td>
-              <td>{product.productAvailability ? 'Available' : 'Unavailable'}</td>
-              <td>{product.productPrice}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-    </div>
+        <DropdownButton
+          id="dropdown-basic-button"
+          title={`Order Status: ${orderStatus}`}
+          onSelect={(status) => handleStatusChange(order.id, status)}
+        >
+          <Dropdown.Item eventKey="Pending">Pending</Dropdown.Item>
+          <Dropdown.Item eventKey="Shipped">Shipped</Dropdown.Item>
+          <Dropdown.Item eventKey="Delivered">Delivered</Dropdown.Item>
+          <Dropdown.Item eventKey="Cancelled" onClick={() => setShowCancelPopup(true)}>Cancelled</Dropdown.Item> {/* Show popup on Cancel click */}
+        </DropdownButton>
+
+        {updateLoading && <p>Updating order status...</p>}
+        {cancelLoading && <p>Cancelling order...</p>}
+        {updateError && <p className="error-message">{updateError}</p>}
+        {cancelError && <p className="error-message">{cancelError}</p>}
+        {successMessages[order.id] && <p className="success-message">{successMessages[order.id]}</p>}
+        {emailErrors[order.id] && <p className="error-message">{emailErrors[order.id]}</p>}
+
+        <Button variant="primary" className="mt-3" onClick={() => handleViewProducts(order.id)}>
+          View Products
+        </Button>
+      </Card.Body>
+
+      {/* Render the CancelPopup if showCancelPopup is true */}
+      {showCancelPopup && (
+        <CancelPopup 
+          onCancel={() => setShowCancelPopup(false)} // Close the popup
+          onSubmit={handleCancelOrder} // Handle order cancellation
+        />
+      )}
+    </Card>
   );
 };
 
