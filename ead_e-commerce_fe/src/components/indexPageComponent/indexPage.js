@@ -12,17 +12,17 @@ export default function Index() {
             </video>
     
             {/* Masthead */}
-            <div className="masthead">
+            <div className="masthead indexFont">
                 <div className="masthead-content text-white">
                     <div class="container-fluid px-4 px-lg-0">
                         <h1 className="fst-italic lh-1 mb-4">Welcome to cart.io :)</h1>
-                        <p className="mb-5"><strong>cart.io</strong> is a fully functional e-commerce platform where you can reach potential customers with ease. <br/> Sign In your own accounts and work together..!</p>
+                        <p className="mb-5"><strong>cart.io</strong> is a fully functional e-commerce platform where you can reach potential customers with ease. <br/><br/> Sign to your account and work together..!</p>
             
                         {/* Contact Form */}
                         <form id="contactForm">
                             <div className="input-group-newsletter">
                                 <Link to="/login">
-                                    <button className="btn btn-primary text-black fw-bold fs-4" id="submitButton" type="submit">Login here...</button>               
+                                    <button className="btn btn-primary text-black fs-4" id="submitButton" type="submit">Login ➡️</button>               
                                 </Link>
                             </div>
                         </form>

@@ -29,7 +29,7 @@ export default function RegisterComponent() {
                 <img className='registerImage' src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp" alt="Registration" />
             </div>
             <div className="form-section registerform">
-                <h2 className='registerheader'>Create Vendor and Customer Support Account Here</h2>
+                <h2 className='registerheader'>Create Vendor & Customer Support Account Here</h2>
                 <form onSubmit={handleUserRegister}>
                     <div className="form-group registergroup">
                         <label className='registerlabel' htmlFor="name">Name</label>

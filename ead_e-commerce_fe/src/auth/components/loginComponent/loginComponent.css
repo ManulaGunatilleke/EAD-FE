@@ -28,7 +28,7 @@
 }
 .website-name {
   margin: 0; 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
 }
 .cardlogin {
@@ -41,6 +41,7 @@
 .cardheaderlogin {
   color: white;
   padding: 10px;
+  font-family: "Poppins", sans-serif;
 }
 
 .grouplogin {
@@ -64,6 +65,7 @@
 .remember {
   color: white;
   padding: 10px;
+  font-family: "Poppins", sans-serif;
 }
 
 .rememberinput {
@@ -71,6 +73,7 @@
   height: 20px;
   margin-left: 15px;
   margin-right: 5px;
+  font-family: "Poppins", sans-serif;
 }
 
 .buttonContainer {
