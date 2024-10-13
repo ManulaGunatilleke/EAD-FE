@@ -14,6 +14,7 @@ export default function ProductApprovalComponent() {
   const [productDescription, setProductDescription] = useState("");
   const [productPrice, setProductPrice] = useState("");
   const [productQuantity, setProductQuantity] = useState("");
+  const [productVendor, setProductVendor] = useState("");
   const [productImage, setProductImage] = useState("");
   const [productStatus, setProductStatus] = useState("");
 
@@ -28,6 +29,7 @@ export default function ProductApprovalComponent() {
       setProductDescription(item.productDescription);
       setProductPrice(item.productPrice);
       setProductQuantity(item.productQuantity);
+      setProductVendor(item.productVendor);
       setProductImage(item.productImage);
       setProductStatus(item.productStatus);
     }
@@ -52,6 +54,7 @@ export default function ProductApprovalComponent() {
           productDescription,
           productPrice,
           productQuantity,
+          productVendor,
           productImage,
           productStatus: status,
         }),

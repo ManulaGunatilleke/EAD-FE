@@ -6,23 +6,24 @@ export const useGetOrderById = (orderId) => {
   const [order, setOrder] = useState(null);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchOrder = async () => {
-      setLoading(true);
-      try {
-        const response = await axios.get(`http://localhost:5292/api/order/get/${orderId}`);
-        setOrder(response.data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (orderId) {
-      fetchOrder();
+  const viewOrderById = async (orderId) => {
+    try {
+      const response = await axios.get(`http://localhost:5292/api/Order/get/${orderId}`);
+      setOrder(response.data);
+      setLoading(false);
+    } catch (err) {
+      setError(err.response.data.error);
+      setLoading(false);
     }
-  }, [orderId]);
+  };
 
-  return { loading, error, order };
+  useEffect(() => {
+    return() => {
+      setOrder(null);
+      setLoading(true);
+      setError(null);
+    }
+  }, []);
+
+  return { loading, error, order, viewOrderById };
 };

@@ -1,149 +1,138 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom'; 
-import { useGetOrderById } from '../../hooks/OrderManagement/useGetOrderById'; 
-import { useUpdateOrderById } from '../../hooks/OrderManagement/useUpdateOrderById'; 
-import { Table, Spinner } from 'react-bootstrap'; 
-import useSendEmailToCustomer from '../../hooks/OrderManagement/useSendEmailToCustomer'; 
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useGetOrderById } from "../../hooks/OrderManagement/useGetOrderById";
+import { Spinner } from "react-bootstrap";
+import "../OrderManagement/OrderProducts.css";
 
-const OrderProducts = () => {
-  const { orderId } = useParams(); 
-  const { loading: loadingOrder, error: orderError, order } = useGetOrderById(orderId); 
-  const { loading: loadingUpdate, error: updateError, success, updateOrder } = useUpdateOrderById(); 
-  const [updatedOrder, setUpdatedOrder] = useState(null); 
-  const { sendEmailToCustomer } = useSendEmailToCustomer(); 
+export default function OrderProducts() {
+  const { orderId } = useParams();
+  const { order, error, viewOrderById } = useGetOrderById();
 
   useEffect(() => {
-    if (order) {
-      setUpdatedOrder(order); 
+    if (orderId) {
+      viewOrderById(orderId);
     }
-  }, [order]);
+  }, [orderId, viewOrderById]);
 
-  useEffect(() => {
-    if (success) {
-      alert("Order updated successfully!"); 
-    }
-  }, [success]);
+  const currentOrder =
+    Array.isArray(order) && order.length > 0 ? order[0] : null;
 
-  // Function to check if all products are delivered
-  const checkAllProductsDelivered = (products) => {
-    return products.every((product) => product.productStatus === true);
-  };
-
-  // Update the order status when delivery status changes
-  const handleStatusChange = async (productId, newStatus) => {
-    if (updatedOrder && updatedOrder.orderStatus !== 'Canceled') { // Prevent updates if the order is canceled
-      const updatedProducts = updatedOrder.products.map((product) => {
-        if (product.id.timestamp === productId) {
-          return { ...product, productStatus: newStatus }; 
-        }
-        return product;
-      });
-
-      let newOrderStatus = updatedOrder.orderStatus;
-
-      if (checkAllProductsDelivered(updatedProducts)) {
-        newOrderStatus = 'Delivered'; 
-      }
-
-      const newOrder = { ...updatedOrder, products: updatedProducts, orderStatus: newOrderStatus };
-      setUpdatedOrder(newOrder); 
-
-      await updateOrder(orderId, newOrder);
-
-      const details = {
-        subject: newOrderStatus === 'Delivered' ? 'Your Order is Delivered!' : 'Product Delivery Status Updated',
-        toEmail: 'inner.gunatilleke@gmail.com', 
-        fromName: 'Your Store Name',  
-        message: newOrderStatus === 'Delivered'
-          ? `Your entire order has been marked as delivered.`
-          : `The delivery status of your product has been updated to ${newStatus ? 'Delivered' : 'Not Delivered'}.`
-      };
-
-      try {
-        await sendEmailToCustomer(details);
-        console.log('Email sent successfully.');
-      } catch (error) {
-        console.error('Error sending email:', error);
-      }
-    } else {
-      alert("Cannot update product status. The order is canceled."); // Notify the user
+  // Function to determine the status class
+  const getStatusClass = (status) => {
+    switch (status.toLowerCase()) {
+      case "new":
+        return "status-new";
+      case "cancelled":
+        return "status-cancelled";
+      default:
+        return "status-other";
     }
   };
-
-  useEffect(() => {
-    // If the order status is 'Canceled', we can add any additional logic if needed here
-    if (updatedOrder && updatedOrder.orderStatus === 'Canceled') {
-      alert("This order has been canceled. You can't update its product delivery status.");
-    }
-  }, [updatedOrder]);
-
-  if (loadingOrder) {
-    return (
-      <div className="text-center">
-        <Spinner animation="border" role="status" />
-      </div>
-    );
-  }
-
-  if (orderError) {
-    return <p style={{ color: 'red' }}>{orderError}</p>;
-  }
-
-  if (!updatedOrder || !updatedOrder.products) {
-    return <p>No products found for this order.</p>;
-  }
 
   return (
-    <div className="container">
-      <h1>Products in Order #{updatedOrder.orderNumber}</h1>
-      <p>Order Status: {updatedOrder.orderStatus}</p> 
-      {updatedOrder.products.length > 0 ? (
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Product ID</th>
-              <th>Name</th>
-              <th>Category</th>
-              <th>Description</th>
-              <th>Quantity</th>
-              <th>Vendor</th>
-              <th>Status</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            {updatedOrder.products.map((product, index) => {
-              const { id, productName, productCategory, productDescription, productQuantity, productVendor, productStatus, productPrice } = product;
+    <div className="container mt-4 orderCard">
+      <h1 className="text-center mb-4 orderSingleHeading">
+        {currentOrder
+          ? `Order Number : ${currentOrder.orderNumber.slice(0, 8)} 🛒`
+          : "View Order"}
+      </h1>
 
-              return (
-                <tr key={id.timestamp + index}> 
-                  <td>{id.timestamp}</td> 
-                  <td>{productName}</td>
-                  <td>{productCategory}</td>
-                  <td>{productDescription}</td>
-                  <td>{productQuantity}</td>
-                  <td>{productVendor}</td>
-                  <td>
-                    <select
-                      value={productStatus ? 'true' : 'false'}
-                      onChange={(e) => handleStatusChange(id.timestamp, e.target.value === 'true')}
-                      disabled={updatedOrder.orderStatus === 'Canceled'}  // Disable the dropdown if the order is canceled
+      <div className="card mb-4 shadow-lg">
+        <div className="card-body">
+          {error && <p className="text-danger">Error: {error}</p>}
+          {!currentOrder ? (
+            <div className="d-flex justify-content-center">
+              <Spinner animation="border" />
+            </div>
+          ) : (
+            <>
+              <div className="text-start mb-4">
+                <p
+                  className={`card-text OrderStatusHeading ${getStatusClass(
+                    currentOrder.orderStatus
+                  )}`}
+                >
+                  Order Status: <strong> {currentOrder.orderStatus}</strong>
+                </p>
+              </div>
+              {currentOrder.products && currentOrder.products.length > 0 ? (
+                currentOrder.products.map((product, index) => {
+                  const {
+                    id,
+                    productName,
+                    productCategory,
+                    productDescription,
+                    productQuantity,
+                    productImage,
+                    productVendor,
+                    productStatus,
+                    productPrice,
+                  } = product;
+
+                  return (
+                    <div
+                      className="row g-0 mb-3 shadow-sm p-3 product-card"
+                      key={id + index}
                     >
-                      <option value="true">Delivered</option>
-                      <option value="false">Not Delivered</option>
-                    </select>
-                  </td>
-                  <td>${typeof productPrice === 'number' ? productPrice.toFixed(2) : 'N/A'}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </Table>
-      ) : (
-        <p>No products found for this order.</p>
-      )}
+                      {/* Display Product Image */}
+                      <div
+                        className="col-md-4 orderProductImage"
+                        style={{ marginRight: "20px" }}
+                      >
+                        <img
+                          src={productImage}
+                          alt={productName}
+                          className="img-fluid h-100 w-100 object-cover"
+                        />
+                      </div>
+
+                      {/* Display Product Details */}
+                      <div className="col-md-7">
+                        <h5 className="card-title">
+                          Product Name: {productName}
+                        </h5>
+                        <p className="card-text">
+                          <strong>Category:</strong>{" "}
+                          {productCategory.toUpperCase()}
+                        </p>
+                        <p className="card-text">
+                          <strong>Description:</strong> {productDescription}
+                        </p>
+                        <p className="card-text">
+                          <strong>Quantity:</strong> {productQuantity}
+                        </p>
+                        <p className="card-text">
+                          <strong>Vendor:</strong> {productVendor}
+                        </p>
+                        <p className="card-text">
+                          <strong>Price:</strong> $
+                          {typeof productPrice === "number"
+                            ? productPrice.toFixed(2)
+                            : "N/A"}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })
+              ) : (
+                <p>No products found for this order.</p>
+              )}
+            </>
+          )}
+        </div>
+      </div>
+
+      <div className="d-flex justify-content-center">
+        <button
+          className="btn btn-warning me-2"
+          onClick={(e) => {
+            e.preventDefault();
+            window.location.href = `/orderDetails`;
+          }}
+        >
+          Back to all Orders
+        </button>
+      </div>
     </div>
   );
-};
-
-export default OrderProducts;
+}

@@ -37,7 +37,6 @@ import UpdateSingleInventoryPage from './pages/updateSingleInventoryPage/updateS
 import ProductApprovalPage from './pages/productApprovalPage/productApprovalPage';
 import ViewApprovalProductPage from './pages/viewApprovalProductPage/viewApprovalProductPage';
 
-import OrderDetails from './components/OrderManagement/OrderDetails';
 import OrderProducts from './components/OrderManagement/OrderProducts';
 import ViewOrderDetailsPage from './pages/viewOrderDetailsPage/viewOrderDetailsPage';
 
@@ -101,7 +100,7 @@ function App() {
             <Route path='/viewProductApproval/:id' element={<ViewApprovalProductPage/>}/>
 
             <Route path='/orderDetails' element={<ViewOrderDetailsPage/>}/>
-            <Route path='/order/products/:orderId' element={<OrderProducts/>}/>
+            <Route path='/viewOrder/:orderId' element={<OrderProducts/>}/>
           </Routes>
         <Footer/>
       </UserContext.Provider>
