@@ -5,7 +5,7 @@ const useUpdateUser = () => {
 
     const updateUser = async (userId, formData) => {
         try {
-            const response = await fetch(`https://localhost:44366/api/User/updateUser/${userId}`, {
+            const response = await fetch(`http://localhost:5292/api/User/updateUser/${userId}`, {
                 method: 'PUT',
                 body: JSON.stringify(formData),
                 headers: {

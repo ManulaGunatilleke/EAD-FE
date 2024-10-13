@@ -10,7 +10,7 @@ const useAllUsers = () => {
 
     const getUsers = async () => {
         try {
-            const response = await axios.get(`https://localhost:44366/api/User/GetAllUsers`);
+            const response = await axios.get(`http://localhost:5292/api/User/GetAllUsers`);
             if (response.status === 200) {
                 setUsers(response.data);
             }

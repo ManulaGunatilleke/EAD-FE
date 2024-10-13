@@ -25,7 +25,10 @@ export default function CSRMain() {
               <h3 className='boxh3'>Cancel Orders</h3>
               <p className='boxp'>Track and cancel customer orders properly.</p>
               <div className="text-center mt-4">
-                <button className="btn btn-primary btn-lg boxcsrbutton">Click Here</button>
+                <button className="btn btn-primary btn-lg boxcsrbutton" onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = `/orderDetails`;
+                  }}>Click Here</button>
               </div>              
             </div>
           </div>

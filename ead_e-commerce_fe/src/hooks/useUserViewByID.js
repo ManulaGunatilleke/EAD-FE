@@ -7,7 +7,7 @@ const useViewUserById = (userId) => {
     useEffect(() => {
         const viewSingleUser = async () => {
             try {
-                const response = await axios.get(`https://localhost:44366/api/User/getSingleUser/${userId}`);
+                const response = await axios.get(`http://localhost:5292/api/User/getSingleUser/${userId}`);
                 if (response.status === 200) {
                     setUserData(response.data);
                 }

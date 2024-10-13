@@ -10,7 +10,7 @@ export const useTrackOrderById = (orderId) => {
     const fetchTracking = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/order/track/${orderId}`);
+        const response = await axios.get(`http://localhost:5292/api/order/track/${orderId}`);
         setTrackingInfo(response.data);
       } catch (err) {
         setError(err.message);

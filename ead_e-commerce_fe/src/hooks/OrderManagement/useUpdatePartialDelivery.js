@@ -11,7 +11,7 @@ export const useUpdatePartialDelivery = () => {
     setError(null); // Reset error before a new request
     setSuccess(false); // Reset success before a new request
     try {
-      const response = await axios.put(`${process.env.REACT_APP_API_URL}/order/partialDelivery/${orderId}/${vendorId}`);
+      const response = await axios.put(`http://localhost:5292/api/order/partialDelivery/${orderId}/${vendorId}`);
       setSuccess(true);
       // Optionally use response data if needed
     } catch (err) {

@@ -58,3 +58,29 @@
     color: red;
     font-weight: bold;
 }
+
+.OrderDetailsTable table th, 
+.OrderDetailsTable table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.dropdown-button-fixed-size {
+  width: 180px;
+}
+
+.dropdown-menu {
+  min-width: 180px;
+}
+
+.dropdown-button-fixed-size {
+    width: 150px; 
+  }
+
+.dropdown-menu {
+width: 100%; 
+}
+  
+.OrderDetailsFont{
+    font-family: "Poppins", sans-serif;
+}

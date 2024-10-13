@@ -10,7 +10,7 @@ const useAllProducts = () => {
 
     const getProducts = async () => {
         try {
-            const response = await axios.get(`https://localhost:44366/api/Product/getAllProducts`);
+            const response = await axios.get(`http://localhost:5292/api/Product/getAllProducts`);
             if(response.status === 200){
                 setProducts(response.data);
             }

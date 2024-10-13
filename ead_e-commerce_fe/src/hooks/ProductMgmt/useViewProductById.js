@@ -9,7 +9,7 @@ const UseViewProductById = () => {
 
     const viewOneProductById = async (id) => {
         try {
-            const response = await axios.get(`https://localhost:44366/api/Product/getProductById/${id}`);
+            const response = await axios.get(`http://localhost:5292/api/Product/getProductById/${id}`);
             setProduct(response.data);
             setLoading(false);
             console.log(response.data);

@@ -33,7 +33,7 @@ export default function UpdateProduct() {
   
   const getProductDetails = async () => {
     let result = await fetch(
-      `https://localhost:44366/api/Product/getProductById/${params.id}`
+      `http://localhost:5292/api/Product/getProductById/${params.id}`
     );
     result = await result.json();
     setProduct(result);
@@ -41,7 +41,7 @@ export default function UpdateProduct() {
 
   const updateProductDetails = async () => {
     let result = await fetch(
-      `https://localhost:44366/api/Product/updateProductById/${params.id}`,
+      `http://localhost:5292/api/Product/updateProductById/${params.id}`,
       {
         method: "Put",
         body: JSON.stringify({
