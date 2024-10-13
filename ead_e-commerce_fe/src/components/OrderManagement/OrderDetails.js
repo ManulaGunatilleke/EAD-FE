@@ -41,7 +41,7 @@ const OrderDetails = ({ orders }) => {
   };
 
   const handleViewProducts = (orderId) => {
-    navigate(`/order/products/${orderId}`);
+    navigate(`/viewOrder/${orderId}`);
   };
 
   const handleCancelOrder = (cancellationNote) => {
