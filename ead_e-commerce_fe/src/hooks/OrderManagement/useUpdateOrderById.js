@@ -9,7 +9,7 @@ export const useUpdateOrderById = () => {
   const updateOrder = async (orderId, order) => {
     setLoading(true);
     try {
-      const response = await axios.put(`${process.env.REACT_APP_API_URL}/order/${orderId}`, order);
+      const response = await axios.put(`http://localhost:5292/api/order/${orderId}`, order);
       setSuccess(true);
     } catch (err) {
       setError(err.message);

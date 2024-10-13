@@ -9,7 +9,7 @@ export const useDeleteOrderById = () => {
   const deleteOrder = async (orderId) => {
     setLoading(true);
     try {
-      const response = await axios.delete(`${process.env.REACT_APP_API_URL}/order/${orderId}`);
+      const response = await axios.delete(`http://localhost:5292/api/order/${orderId}`);
       setSuccess(true);
     } catch (err) {
       setError(err.message);

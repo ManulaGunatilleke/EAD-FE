@@ -9,7 +9,7 @@ export default function Footer() {
     const hideFooter = location.pathname === '/' || location.pathname === '/login';
 
     if (hideFooter) {
-        return null; // Render nothing if footer should be hidden
+        return null;
     }
 
     return (
@@ -18,9 +18,9 @@ export default function Footer() {
                 <div className="container">
                     <p>&copy; {new Date().getFullYear()} Made with ❤️ by Bihesha, Manula & Teshan.</p>
                     <div className="social-links">
-                        <a href="#facebook" aria-label="Facebook">Facebook</a>
-                        <a href="#twitter" aria-label="Twitter">YouTube</a>
-                        <a href="#linkedin" aria-label="LinkedIn">LinkedIn</a>
+                        <a href="https://web.facebook.com/teshan.jayakody/" aria-label="Facebook">Facebook</a>
+                        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" aria-label="Twitter">YouTube</a>
+                        <a href="https://www.linkedin.com/in/teshanjayakody/" aria-label="LinkedIn">LinkedIn</a>
                     </div>
                 </div>
             </footer>

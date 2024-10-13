@@ -14,7 +14,7 @@ export const useCancelOrderById = () => {
     try {
       // Ensure the cancellation note is properly formatted
       const response = await axios.put(
-        `${process.env.REACT_APP_API_URL}/Order/cancel/${orderId}`,
+        `http://localhost:5292/api/Order/cancel/${orderId}`,
         { cancellationNote }, // Correctly formatted body
         {
           headers: {

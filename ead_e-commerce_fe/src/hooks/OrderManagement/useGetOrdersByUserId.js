@@ -10,7 +10,7 @@ export const useGetOrdersByUserId = (userId) => {
     const fetchOrders = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/order/getOrdersByUser/${userId}`);
+        const response = await axios.get(`http://localhost:5292/api/order/getOrdersByUser/${userId}`);
         setOrders(response.data);
       } catch (err) {
         setError(err.message);

@@ -9,7 +9,7 @@ export const useMarkOrderAsDelivered = () => {
   const markAsDelivered = async (orderId) => {
     setLoading(true);
     try {
-      const response = await axios.put(`${process.env.REACT_APP_API_URL}/order/markAsDelivered/${orderId}`);
+      const response = await axios.put(`http://localhost:5292/api/order/markAsDelivered/${orderId}`);
       setSuccess(true);
     } catch (err) {
       setError(err.message);

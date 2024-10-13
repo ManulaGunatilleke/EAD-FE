@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import useViewOrder from '../../hooks/OrderManagement/useViewOrder';
 import OrderDetails from '../../components/OrderManagement/OrderDetails';
-import './OrderDetailsPage.css'; // Import custom CSS for grid layout
+import './OrderDetailsPage.css'; 
 
 const OrderDetailsPage = () => {
   const { orders: initialOrders, loading, error } = useViewOrder();
@@ -24,12 +24,10 @@ const OrderDetailsPage = () => {
 
   return (
     <div className="container">
-      <h1>Order Details</h1>
-      <div className="order-grid"> {/* Grid layout for cards */}
-        {orders.map((order) => (
-          <OrderDetails key={order.id} order={order} />
-        ))}
-      </div>
+      <h1 className='orderDetailsHeading'>Order Details</h1>
+      <p className='orderDetailsPara'>View all the orders received from customers of cart.io at your own ease! 🤩</p>
+
+      <OrderDetails orders={orders} />
     </div>
   );
 };
