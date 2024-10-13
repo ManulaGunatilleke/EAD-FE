@@ -4,7 +4,7 @@ const useAccountActivate = () => {
 
     const activateAccount = async (userId) => {
         try {
-            const response = await axios.put(`https://localhost:44366/api/User/updateAccountStatus/${userId}`, "Activate", {
+            const response = await axios.put(`http://localhost:5292/api/User/updateAccountStatus/${userId}`, "Activate", {
                 headers: {
                     'Content-Type': 'application/json'
                 }

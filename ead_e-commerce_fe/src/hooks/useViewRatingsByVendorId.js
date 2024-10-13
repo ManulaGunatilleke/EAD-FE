@@ -7,7 +7,7 @@ const useViewRatingByVendorId = (vendorId) => {
     useEffect(() => {
         const viewRatingById = async () => {
             try {
-                const response = await axios.get(`https://localhost:44366/api/Rating/GetRatingsByVendorId/${vendorId}`);
+                const response = await axios.get(`http://localhost:5292/api/Rating/GetRatingsByVendorId/${vendorId}`);
                 if (response.status === 200) {
                     setRatingData(response.data);
                 }

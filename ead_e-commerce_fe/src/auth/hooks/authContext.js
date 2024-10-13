@@ -37,7 +37,7 @@ const useAuth = () => {
 
     const login = async (Email, Password) => {
         try {
-            const response = await axios.post('https://localhost:44366/api/User/login', {
+            const response = await axios.post('http://localhost:5292/api/User/login', {
                 Email,
                 Password
             });

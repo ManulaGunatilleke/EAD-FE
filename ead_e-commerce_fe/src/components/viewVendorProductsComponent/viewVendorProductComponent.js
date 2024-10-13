@@ -17,7 +17,7 @@ export default function ViewVendorProductComponent() {
   }, []);
 
   const getProducts = async () => {
-    const response = await axios.get(`https://localhost:44366/api/Product/getProductsByVendor/${vendorId}`);
+    const response = await axios.get(`http://localhost:5292/api/Product/getProductsByVendor/${vendorId}`);
 
     if(response.status === 200) {
       setData(response.data);

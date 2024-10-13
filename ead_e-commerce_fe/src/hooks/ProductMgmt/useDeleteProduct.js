@@ -5,7 +5,7 @@ const useDeleteProduct = () => {
         try {
             console.log(id);
             if(window.confirm("Are you sure that you want to delete this product?")){
-                const response = await axios.delete(`https://localhost:44366/api/Product/deleteProductById/${id}`);
+                const response = await axios.delete(`http://localhost:5292/api/Product/deleteProductById/${id}`);
                 if(response.status === 200){
                     return true;
                 }

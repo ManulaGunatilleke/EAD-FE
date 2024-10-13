@@ -28,7 +28,7 @@ const useCreateProduct = () => {
       const imageUrl = await getDownloadURL(imageRef);
 
       //Send Product Data along with the firebase image URL
-      const response = await axios.post("https://localhost:44366/api/Product", {
+      const response = await axios.post("http://localhost:5292/api/Product", {
         ProductName,
         ProductCategory,
         ProductDescription,

@@ -35,7 +35,7 @@ export default function ProductApprovalComponent() {
 
   const getProductDetails = async () => {
     let result = await fetch(
-      `https://localhost:44366/api/Product/getProductById/${id}`
+      `http://localhost:5292/api/Product/getProductById/${id}`
     );
     result = await result.json();
     setItem(result);
@@ -43,7 +43,7 @@ export default function ProductApprovalComponent() {
 
   const updateProductStatus = async (status) => {
     let result = await fetch(
-      `https://localhost:44366/api/Product/updateProductById/${id}`,
+      `http://localhost:5292/api/Product/updateProductById/${id}`,
       {
         method: "Put",
         body: JSON.stringify({
