@@ -46,11 +46,11 @@ export default function LoginComponent() {
                                 <input type="password" className="form-control" placeholder="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)} />
                             </div>
                             <div className="row align-items-center remember">
-                                <input className='rememberinput' type="checkbox" required/> Remember Me
+                                <input className='rememberinput' type="checkbox" required/> I assure that I am not a robot 🤖
                             </div>
                             {error && <p className="text-sm text-red-500">{error}</p>}
                             <div className="form-group button-container buttonContainer">
-                                <input type="submit" value="Login" className="btn login_btn" />
+                                <input type="submit" value="Sign In" className="btn login_btn" />
                             </div>
                         </form>
                     </div>

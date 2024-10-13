@@ -12,17 +12,20 @@ export default function CSRMain() {
           <div className="col-md-4">
             <div className="box p-4 boxcsr">
               <i className="bi bi-person-add fs-1 mb-3 boxi"></i>
-              <h3 className='boxh3'>Cutomer Request</h3>
+              <h3 className='boxh3'>Customer Request</h3>
               <p className='boxp'>Manage your customer request efficiently.</p>
               <div className="text-center mt-4">
-                <button className="btn btn-primary btn-lg boxcsrbutton">Click Here</button>
+                <button className="btn btn-primary btn-lg boxcsrbutton" onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = `/notActivateAccounts`;
+                  }}>Click Here</button>
               </div>
             </div>
           </div>
           <div className="col-md-4">
             <div className="box p-4 boxcsr">
               <i className="bi bi-cart-x fs-1 mb-3 boxi"></i>
-              <h3 className='boxh3'>Cancel Orders</h3>
+              <h3 className='boxh3'>Manage Orders</h3>
               <p className='boxp'>Track and cancel customer orders properly.</p>
               <div className="text-center mt-4">
                 <button className="btn btn-primary btn-lg boxcsrbutton" onClick={(e) => {
@@ -35,10 +38,13 @@ export default function CSRMain() {
           <div className="col-md-4">
             <div className="box p-4 boxcsr">
               <i className="bi bi-graph-up-arrow fs-1 mb-3 boxi"></i>
-              <h3 className='boxh3'>Analytics</h3>
-              <p className='boxp'>Analyze sales and performance metrics.</p>
+              <h3 className='boxh3'>Manage User Account</h3>
+              <p className='boxp'>View User details and manage them seamlessly.</p>
               <div className="text-center mt-4">
-                <button className="btn btn-primary btn-lg boxcsrbutton">Click Here</button>
+                <button className="btn btn-primary btn-lg boxcsrbutton" onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = `/notActivateAccounts`;
+                  }}>Click Here</button>
               </div>
             </div>
           </div>

@@ -29,7 +29,8 @@ export default function NotActivate() {
 
     return (
         <div className="not-activate">
-            <h1 className='notActiveh1'>Not Activate Accounts</h1>
+            <h1 className='notActiveh1'>Activate Accounts</h1>
+            <p className='ActivateAccPara'>Activate Customer, CSR & Vendor Accounts here as an Administrator.</p>
             <div className="search-bar">
                 <input
                     className='searchbarinput'
