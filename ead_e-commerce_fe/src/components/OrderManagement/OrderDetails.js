@@ -30,7 +30,7 @@ const OrderDetails = ({ orders }) => {
 
     const emailDetails = {
       subject: `Your order status has been updated to: ${newStatus}`,
-      toEmail: order.userEmail,
+      toEmail: order.email,
       fromName: "cart.io",
       message: `Dear customer, your order #${order.orderNumber} has been updated to '${newStatus}'.`,
     };
